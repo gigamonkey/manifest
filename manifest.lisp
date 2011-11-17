@@ -14,7 +14,8 @@ keyword argument."
     (*manifest-server*
      (start-acceptor *manifest-server*))
     (t
-     (setf *manifest-server* (start-server :handler (make-handler) :port port))))
+     (setf *manifest-server*
+           (start-server :handler (make-handler) :port port :access-logger nil :message-logger nil))))
   (format nil "http://localhost:~d/" (port *manifest-server*)))
 
 (defun stop (&optional (server *manifest-server*))
