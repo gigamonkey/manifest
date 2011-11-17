@@ -50,7 +50,7 @@ keyword argument."
             (let ((readme (readme-text package-name)))
               (when readme
                 (setf some-docs-p t)
-                (format s "<pre>~a</pre>" readme)))
+                (format s "<pre>~a</pre>" (escape-for-html readme))))
 
             (loop for what in *categories*
                for names = (names package what)
@@ -58,7 +58,10 @@ keyword argument."
                  (setf some-docs-p t)
                  (format s "~&<h2>~:(~a~)</h2>~&<table>" (pluralization what))
                  (loop for sym in names do
-                      (format s "~&<tr><td class='symbol'>~(~a~)</td><td class='docs'>~a</td></tr>" sym (docs-for sym what)))
+                      (format s "~&<tr><td class='symbol'>~a</td>
+<td class='docs'>~a</td></tr>"
+                              (escape-for-html (string-downcase sym))
+                              (escape-for-html (or (docs-for sym what) "NO DOCS!"))))
                  (format s "~&</table>"))
 
             (unless some-docs-p
@@ -79,7 +82,9 @@ keyword argument."
     (format s "~&</body></html>")))
 
 (defun public-packages ()
-  (loop for p in (list-all-packages) when (has-exported-symbols-p p) collect p))
+  (loop for p in (list-all-packages)
+     when (and (has-exported-symbols-p p) (not (eql p (find-package :keyword))))
+     collect p))
 
 (defun has-exported-symbols-p (package)
   (do-external-symbols (sym package)
