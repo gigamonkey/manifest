@@ -1,6 +1,5 @@
 (in-package :manifest)
 
-
 (defun start (&key (port 0))
   "Start the manifest server and return the URL to browse. By default
 picks a random unused port or you can specify a port with the :port
@@ -18,8 +17,7 @@ keyword argument."
 
 (defun manifest (request)
   (cond
-    ((string= (uri-path (request-uri request)) "/")
-     (index-page))
+    ((string= (uri-path (request-uri request)) "/") (index-page request))
     (t (package-page request))))
 
 (defun package-page (request)
@@ -27,11 +25,10 @@ keyword argument."
       (split-sequence #\/ (subseq (uri-path (request-uri request)) 1))
     (declare (ignore rest))
 
-
     (let ((package (find-package (string-upcase package-name))))
       (cond
         (package
-          (with-output-to-string (s)
+          (let ((s (send-headers request)))
             (format s "<html><head><title>Package: ~a</title><link rel='stylesheet' type='text/css' href='manifest.css'></head>" (package-name package))
             (format s "<body><h1>Package: ~a</h1>" (package-name package))
 
@@ -45,8 +42,8 @@ keyword argument."
             (format s "~&</dl></body></html>")))
         (t 'not-handled)))))
 
-(defun index-page ()
-  (with-output-to-string (s)
+(defun index-page (request)
+  (let ((s (send-headers request)))
     (format s "<html><head><title>Manifest: all packages</title><link rel='stylesheet' type='text/css' href='manifest.css'></head>")
     (format s "<body><h1>All Packages</h1>")
     (format s "~&<ul>")
