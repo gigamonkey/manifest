@@ -1,21 +1,21 @@
-(in-package :lispdoc)
+(in-package :manifest)
 
 (defun make-handler (root-dir)
   (let ((static-files (make-instance 'static-file-handler :root root-dir)))
     (lambda (request)
-      (let ((result (lispdoc request)))
+      (let ((result (manifest request)))
         (case result
           (not-handled (handle-request static-files request))
           (t result))))))
 
-(defun lispdoc (request)
+(defun manifest (request)
   (destructuring-bind (package-name &rest rest)
       (split-sequence #\/ (subseq (uri-path (request-uri request)) 1))
     (declare (ignore rest))
     (let ((package (find-package (string-upcase package-name))))
       (if package
           (with-output-to-string (s)
-            (format s "<html><head><title>Package: ~a</title><link rel='stylesheet' type='text/css' href='lispdoc.css'></head>" (package-name package))
+            (format s "<html><head><title>Package: ~a</title><link rel='stylesheet' type='text/css' href='manifest.css'></head>" (package-name package))
             (format s "<body><h1>Package: ~a</h1>" (package-name package))
 
             (loop for what in '(:class :function :generic-function :accessor :variable :constant) do

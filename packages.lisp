@@ -1,6 +1,6 @@
 (in-package :cl-user)
 
-(defpackage :lispdoc
+(defpackage :manifest
   (:use :cl :toot :puri :split-sequence :closer-mop)
   (:shadowing-import-from :closer-mop
                           :defmethod
