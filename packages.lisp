@@ -5,5 +5,7 @@
   (:shadowing-import-from :closer-mop
                           :defmethod
                           :defgeneric
-                          :standard-generic-function))
+                          :standard-generic-function)
+
+  (:export :start))
 
