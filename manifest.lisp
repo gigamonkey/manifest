@@ -32,6 +32,8 @@ keyword argument."
             (format s "<html><head><title>Package: ~a</title><link rel='stylesheet' type='text/css' href='manifest.css'></head>" (package-name package))
             (format s "<body><h1>Package: ~a</h1>" (package-name package))
 
+            (format s "~a" (readme-text))
+
             (loop for what in '(:class :function :generic-function :accessor :variable :constant) do
                  (format s "~&<h2>~:(~a~a~)</h2>~&<table>" what (pluralization what))
                  (loop for sym in (names package what) do
@@ -51,6 +53,12 @@ keyword argument."
          (format s "<li><a href='~a'>~a</a></li>" (string-downcase pkg) pkg))
     (format s "~&</ul>")
     (format s "~&</body></html>")))
+
+(defun readme-text ()
+  (with-open-file (in (asdf:system-relative-pathname :toot "README"))
+    (with-output-to-string (s)
+      (loop for line = (read-line in nil nil)
+           while line do (write-line line s)))))
 
 (defun names (package what)
   (sort (loop for sym being the external-symbols of package when (is sym what) collect sym) #'string<))
