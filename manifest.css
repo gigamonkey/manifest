@@ -1,0 +1,29 @@
+body {
+    width: 800px;
+    margin: 20px auto;
+    font-family: "Gill Sans", sans-serif;
+}
+
+table {
+    width: 100%;
+}
+
+tr {
+    background: #eeeeff;
+}
+
+td {
+    vertical-align: top;
+    padding-bottom: 1em;
+    padding-top: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+td.symbol {
+    width: 250px;
+}
+
+td.docs {
+}
+

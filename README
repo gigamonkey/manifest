@@ -1,0 +1,3 @@
+Manifest is a sytem for semi-automatically documenting Common Lisp
+pacakges. The basic premise is that every exported symbol in a package
+should be documented.
