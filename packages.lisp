@@ -7,5 +7,6 @@
                           :defgeneric
                           :standard-generic-function)
 
-  (:export :start))
+  (:export :start
+           :stop))
 

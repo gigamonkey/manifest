@@ -1,13 +1,25 @@
 (in-package :manifest)
 
+(defvar *manifest-server* nil)
+
 (defun start (&key (port 0))
   "Start the manifest server and return the URL to browse. By default
 picks a random unused port or you can specify a port with the :port
 keyword argument."
-  (let ((acceptor (start-server :handler (make-handler (asdf:system-relative-pathname :manifest nil)) :port port)))
-    (format nil "http://localhost:~d/" (port acceptor))))
+  (cond
+    ((and *manifest-server* (not (toot::shutdown-p *manifest-server*)))
+     (warn "Manifest server already running."))
+    (*manifest-server*
+     (start-acceptor *manifest-server*))
+    (t
+     (setf *manifest-server* (start-server :handler (make-handler) :port port))))
+  (format nil "http://localhost:~d/" (port *manifest-server*)))
 
-(defun make-handler (root-dir)
+(defun stop (&optional (server *manifest-server*))
+  "Stop the manifest server, defaulting to *manifest-server*."
+  (stop-acceptor server))
+
+(defun make-handler (&optional (root-dir (asdf:system-relative-pathname :manifest nil)))
   (let ((static-files (make-instance 'static-file-handler :root root-dir)))
     (lambda (request)
       (let ((result (manifest request)))
@@ -74,7 +86,6 @@ keyword argument."
 (defmethod pluralization (what) "s")
 
 (defmethod pluralization ((what (eql :class))) "es")
-
 
 (defmethod is (sym (what (eql :function)))
   (and (fboundp sym) (not (typep (symbol-function sym) 'generic-function))))
