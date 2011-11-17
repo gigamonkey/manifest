@@ -1,5 +1,9 @@
 (in-package :manifest)
 
+
+(defun start (&optional (port 8080))
+  (start-server :handler (make-handler (asdf:system-relative-pathname :manifest nil)) :port port))
+
 (defun make-handler (root-dir)
   (let ((static-files (make-instance 'static-file-handler :root root-dir)))
     (lambda (request)
