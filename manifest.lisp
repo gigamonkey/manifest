@@ -2,6 +2,8 @@
 
 (defvar *manifest-server* nil)
 
+(defparameter *categories* '(:function :generic-function :accessor :variable :class :condition :constant))
+
 (defun start (&key (port 0))
   "Start the manifest server and return the URL to browse. By default
 picks a random unused port or you can specify a port with the :port
@@ -48,8 +50,8 @@ keyword argument."
               (when readme
                 (format s "~a" readme)))
 
-            (loop for what in '(:class :function :generic-function :accessor :variable :constant) do
-                 (format s "~&<h2>~:(~a~a~)</h2>~&<table>" what (pluralization what))
+            (loop for what in *categories* do
+                 (format s "~&<h2>~:(~a~)</h2>~&<table>" (pluralization what))
                  (loop for sym in (names package what) do
                       (format s "~&<tr><td class='symbol'>~(~a~)</td><td class='docs'>~a</td></tr>" sym (docs-for sym what)))
                  (format s "~&</table>"))
@@ -83,45 +85,53 @@ keyword argument."
 (defgeneric docs-for (symbol what))
 (defgeneric pluralization (what))
 
-(defmethod pluralization (what) "s")
+(defmethod pluralization (what) (format nil "~as" what))
 
-(defmethod pluralization ((what (eql :class))) "es")
+(defmacro define-category (name (symbol what) &body body)
+  (let ((is-test (cdr (assoc :is body)))
+        (get-docs (cdr (assoc :docs body)))
+        (pluralization (cdr (assoc :pluralization body))))
+    `(progn
+       (defmethod is (,symbol (,what (eql ',name))) ,@is-test)
+       (defmethod docs-for (,symbol (,what (eql ',name))) ,@get-docs)
+       ,@(when pluralization
+               `((defmethod pluralization ((,what (eql ',name)))
+                   ,@pluralization))))))
 
-(defmethod is (sym (what (eql :function)))
-  (and (fboundp sym) (not (typep (symbol-function sym) 'generic-function))))
+(define-category :function (symbol what)
+  (:is (and (fboundp symbol) (not (typep (symbol-function symbol) 'generic-function))))
+  (:docs (documentation symbol 'function)))
 
-(defmethod is (sym (what (eql :generic-function)))
-  (and (fboundp sym) (typep (symbol-function sym) 'generic-function)
-       (not (is sym :accessor))))
+(define-category :generic-function (symbol what)
+  (:is (and (fboundp symbol)
+            (typep (symbol-function symbol) 'generic-function)
+            (not (is symbol :accessor))))
+  (:docs (documentation symbol 'function)))
 
-(defmethod is (sym (what (eql :class)))
-  (find-class sym nil))
+(define-category :class (symbol what)
+  (:is (and (find-class symbol nil) (not (is symbol :condition))))
+  (:docs (documentation (find-class symbol) t))
+  (:pluralization (format nil "~aes" what)))
 
-(defmethod is (sym (what (eql :variable)))
-  (and (boundp sym) (not (constantp sym))))
+(define-category :condition (symbol what)
+  (:is (and (find-class symbol nil) (subtypep (find-class symbol nil) 'condition)))
+  (:docs (documentation (find-class symbol) t)))
 
-(defmethod is (sym (what (eql :constant)))
-  (and (boundp sym) (constantp sym)))
+(define-category :variable (symbol what)
+  (:is (and (boundp symbol) (not (constantp symbol))))
+  (:docs   (documentation symbol 'variable)))
 
-(defmethod is (sym (what (eql :accessor)))
-  (and (fboundp sym) (fboundp `(setf ,sym)) (typep (symbol-function sym) 'generic-function)))
+(define-category :constant (symbol what)
+  (:is (and (boundp symbol) (constantp symbol)))
+  (:docs (documentation symbol 'variable)))
+
+(define-category :accessor (symbol what)
+  (:is (and (fboundp symbol)
+            (fboundp `(setf ,symbol))
+            (typep (fdefinition symbol) 'generic-function)
+            (typep (fdefinition `(setf ,symbol)) 'generic-function)))
+  (:docs (documentation symbol 'function)))
 
 
-(defmethod docs-for (symbol (what (eql :function)))
-  (documentation symbol 'function))
 
-(defmethod docs-for (symbol (what (eql :generic-function)))
-  (documentation symbol 'function))
-
-(defmethod docs-for (symbol (what (eql :accessor)))
-  (documentation symbol 'function))
-
-(defmethod docs-for (symbol (what (eql :class)))
-  (documentation (find-class symbol) t))
-
-(defmethod docs-for (symbol (what (eql :variable)))
-  (documentation symbol 'variable))
-
-(defmethod docs-for (symbol (what (eql :constant)))
-  (documentation symbol 'variable))
 
