@@ -27,3 +27,11 @@ td.symbol {
 td.docs {
 }
 
+ul {
+    padding: 0;
+    margin: 0;
+    -moz-column-count: 4;
+    -webkit-column-count: 4;
+    column-count: 4;
+
+}

@@ -1,8 +1,9 @@
 (in-package :manifest)
 
 
-(defun start (&optional (port 8080))
-  (start-server :handler (make-handler (asdf:system-relative-pathname :manifest nil)) :port port))
+(defun start (&key (port 0))
+  (let ((acceptor (start-server :handler (make-handler (asdf:system-relative-pathname :manifest nil)) :port port)))
+    (format nil "http://localhost:~d/" (port acceptor))))
 
 (defun make-handler (root-dir)
   (let ((static-files (make-instance 'static-file-handler :root root-dir)))
@@ -13,11 +14,20 @@
           (t result))))))
 
 (defun manifest (request)
+  (cond
+    ((string= (uri-path (request-uri request)) "/")
+     (index-page))
+    (t (package-page request))))
+
+(defun package-page (request)
   (destructuring-bind (package-name &rest rest)
       (split-sequence #\/ (subseq (uri-path (request-uri request)) 1))
     (declare (ignore rest))
+
+
     (let ((package (find-package (string-upcase package-name))))
-      (if package
+      (cond
+        (package
           (with-output-to-string (s)
             (format s "<html><head><title>Package: ~a</title><link rel='stylesheet' type='text/css' href='manifest.css'></head>" (package-name package))
             (format s "<body><h1>Package: ~a</h1>" (package-name package))
@@ -29,9 +39,18 @@
                  (format s "~&</table>"))
 
 
-            (format s "~&</dl></body></html>"))
-          'not-handled))))
+            (format s "~&</dl></body></html>")))
+        (t 'not-handled)))))
 
+(defun index-page ()
+  (with-output-to-string (s)
+    (format s "<html><head><title>Manifest: all packages</title><link rel='stylesheet' type='text/css' href='manifest.css'></head>")
+    (format s "<body><h1>All Packages</h1>")
+    (format s "~&<ul>")
+    (loop for pkg in (sort (mapcar #'package-name (list-all-packages)) #'string<) do
+         (format s "<li><a href='~a'>~a</a></li>" (string-downcase pkg) pkg))
+    (format s "~&</ul>")
+    (format s "~&</body></html>")))
 
 (defun names (package what)
   (sort (loop for sym being the external-symbols of package when (is sym what) collect sym) #'string<))
