@@ -39,7 +39,8 @@ keyword argument."
       (split-sequence #\/ (subseq (uri-path (request-uri request)) 1))
     (declare (ignore rest))
 
-    (let ((package (find-package (string-upcase package-name))))
+    (let ((package (find-package (string-upcase package-name)))
+          (some-docs-p nil))
       (cond
         (package
           (let ((s (send-headers request)))
@@ -48,16 +49,23 @@ keyword argument."
 
             (let ((readme (readme-text package-name)))
               (when readme
+                (setf some-docs-p t)
                 (format s "~a" readme)))
 
-            (loop for what in *categories* do
+            (loop for what in *categories*
+               for names = (names package what)
+               when names do
+                 (setf some-docs-p t)
                  (format s "~&<h2>~:(~a~)</h2>~&<table>" (pluralization what))
-                 (loop for sym in (names package what) do
+                 (loop for sym in names do
                       (format s "~&<tr><td class='symbol'>~(~a~)</td><td class='docs'>~a</td></tr>" sym (docs-for sym what)))
                  (format s "~&</table>"))
 
+            (unless some-docs-p
+              (format s "<p>Uh oh! No docs at all.</p>"))
 
-            (format s "~&</dl></body></html>")))
+
+            (format s "~&</body></html>")))
         (t 'not-handled)))))
 
 (defun index-page (request)
@@ -65,10 +73,19 @@ keyword argument."
     (format s "<html><head><title>Manifest: all packages</title><link rel='stylesheet' type='text/css' href='manifest.css'></head>")
     (format s "<body><h1>All Packages</h1>")
     (format s "~&<ul>")
-    (loop for pkg in (sort (mapcar #'package-name (list-all-packages)) #'string<) do
+    (loop for pkg in (sort (mapcar #'package-name (public-packages)) #'string<) do
          (format s "<li><a href='~a'>~a</a></li>" (string-downcase pkg) pkg))
     (format s "~&</ul>")
     (format s "~&</body></html>")))
+
+(defun public-packages ()
+  (loop for p in (list-all-packages) when (has-exported-symbols-p p) collect p))
+
+(defun has-exported-symbols-p (package)
+  (do-external-symbols (sym package)
+    (declare (ignore sym))
+    (return-from has-exported-symbols-p t))
+  nil)
 
 (defun readme-text (package-name)
   (let ((dir (ignore-errors (asdf:system-relative-pathname package-name nil))))
