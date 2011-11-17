@@ -1,8 +1,8 @@
-Manifest is a sytem for semi-automatically documenting Common Lisp
-pacakges. (A manifest tells you what's in a package. Also this system
+Manifest is a system for semi-automatically documenting Common Lisp
+packages. (A manifest tells you what's in a package. Also this system
 makes manifest a bunch of information that is actually present in a
 Lisp system.) The basic premise is that every exported symbol in a
 package should be documented.
 
 To check it out, after loading the system, evaluate (start) and point
-your browser at the url it returns.
+your browser at the URL it returns.
