@@ -2,6 +2,9 @@
 
 
 (defun start (&key (port 0))
+  "Start the manifest server and return the URL to browse. By default
+picks a random unused port or you can specify a port with the :port
+keyword argument."
   (let ((acceptor (start-server :handler (make-handler (asdf:system-relative-pathname :manifest nil)) :port port)))
     (format nil "http://localhost:~d/" (port acceptor))))
 
