@@ -1,3 +1,5 @@
 Manifest is a sytem for semi-automatically documenting Common Lisp
-pacakges. The basic premise is that every exported symbol in a package
-should be documented.
+pacakges. (A manifest tells you what's in a package. Also this system
+makes manifest a bunch of information that is actually present in a
+Lisp system.) The basic premise is that every exported symbol in a
+package should be documented.
