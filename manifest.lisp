@@ -71,12 +71,13 @@ keyword argument."
     (format s "~&</body></html>")))
 
 (defun readme-text (package-name)
-  (let ((dir (asdf:system-relative-pathname package-name nil)))
+  (let ((dir (ignore-errors (asdf:system-relative-pathname package-name nil))))
     (when dir
-      (with-open-file (in (merge-pathnames "README" dir))
-        (with-output-to-string (s)
-          (loop for line = (read-line in nil nil)
-             while line do (write-line line s)))))))
+      (with-open-file (in (merge-pathnames "README" dir) :if-does-not-exist nil)
+        (when in
+          (with-output-to-string (s)
+            (loop for line = (read-line in nil nil)
+               while line do (write-line line s))))))))
 
 (defun names (package what)
   (sort (loop for sym being the external-symbols of package when (is sym what) collect sym) #'string<))
