@@ -50,7 +50,7 @@ keyword argument."
             (let ((readme (readme-text package-name)))
               (when readme
                 (setf some-docs-p t)
-                (format s "~a" readme)))
+                (format s "<pre>~a</pre>" readme)))
 
             (loop for what in *categories*
                for names = (names package what)
