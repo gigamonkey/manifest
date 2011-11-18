@@ -46,7 +46,9 @@ keyword argument."
         (package
           (let ((s (send-headers request)))
             (format s "<html><head><title>Package: ~a</title><link rel='stylesheet' type='text/css' href='manifest.css'></head>" (package-name package))
-            (format s "<body><h1>Package: ~a</h1>" (package-name package))
+            (format s "<body><h1>~a</h1>" (package-name package))
+            (when (documentation package t)
+              (format s "<body><p class='package-desc'>~a</p>" (documentation package t)))
 
             (let ((readme (readme-text package-name)))
               (when readme
@@ -64,6 +66,20 @@ keyword argument."
                               (escape-for-html (princ-to-string sym))
                               (escape-for-html (or (docs-for sym what) "NO DOCS!"))))
                  (format s "~&</table>"))
+
+            (let ((used-by (sort (package-used-by-list package) #'string< :key #'package-name)))
+              (when used-by
+                (format s "~&<h2>Used by:</h2>~&<ul>")
+                (loop for p in used-by do
+                     (format s "~&<li><a href='./~(~a~)'>~:*~a</a></li>" (package-name p)))
+                (format s "~&</ul>")))
+
+            (let ((uses (sort (package-use-list package) #'string< :key #'package-name)))
+              (when uses
+                (format s "~&<h2>Uses:</h2>~&<ul>")
+                (loop for p in uses do
+                     (format s "~&<li><a href='./~(~a~)'>~:*~a</a></li>" (package-name p)))
+                (format s "~&</ul>")))
 
             (unless some-docs-p
               (format s "<p>Uh oh! No docs at all.</p>"))
