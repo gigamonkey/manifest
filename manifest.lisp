@@ -2,7 +2,7 @@
 
 (defvar *manifest-server* nil)
 
-(defparameter *categories* '(:function :generic-function :accessor :variable :class :condition :constant))
+(defparameter *categories* '(:function :generic-function :slot-accessor :variable :class :condition :constant))
 
 (defun start (&key (port 0))
   "Start the manifest server and return the URL to browse. By default
@@ -59,9 +59,9 @@ keyword argument."
                  (setf some-docs-p t)
                  (format s "~&<h2>~:(~a~)</h2>~&<table>" (pluralization what))
                  (loop for sym in names do
-                      (format s "~&<tr><td class='symbol'>~a</td>
+                      (format s "~&<tr><td class='symbol'>~(~a~)</td>
 <td class='docs'>~a</td></tr>"
-                              (escape-for-html (string-downcase sym))
+                              (escape-for-html (princ-to-string sym))
                               (escape-for-html (or (docs-for sym what) "NO DOCS!"))))
                  (format s "~&</table>"))
 
@@ -93,6 +93,23 @@ keyword argument."
     (return-from has-exported-symbols-p t))
   nil)
 
+(defun needs-documentation (package)
+  (loop for what in *categories*
+     for names = (names package what)
+     when names nconc
+       (loop for sym in names unless (docs-for sym what) collect (list sym what))))
+
+(defun documentation-templates (package)
+  (loop for (name what) in (needs-documentation package)
+       collect
+       (ecase what
+         (:slot-accessor
+          `(setf (documentation #',name t) "WRITE ME!"))
+         (:class
+          `(setf (documentation (find-class ',name) t) "WRITE ME!")))))
+
+
+
 (defun readme-text (package-name)
   (let ((dir (ignore-errors (asdf:system-relative-pathname package-name nil))))
     (when dir
@@ -103,7 +120,29 @@ keyword argument."
                while line do (write-line line s))))))))
 
 (defun names (package what)
-  (sort (loop for sym being the external-symbols of package when (is sym what) collect sym) #'string<))
+  (sort
+   (loop for sym being the external-symbols of package
+      when (is sym what) collect sym
+      when (is `(setf ,sym) what) collect `(setf ,sym))
+   #'name<))
+
+(defun name< (n1 n2)
+  (cond
+    ((and (symbolp n1) (symbolp n2))
+     (string< n1 n2))
+    ((and (symbolp n1) (listp n2))
+     (cond
+       ((string< n1 (second n2)) t)
+       ((string< (second n2) n1) nil)
+       (t t)))
+    ((and (listp n1) (symbolp n2))
+     (cond
+       ((string< (second n1) n2) t)
+       ((string< n2 (second n1)) nil)
+       (t nil)))
+    ((and (listp n1) (listp n2))
+     (string< (second n1) (second n2)))))
+
 
 (defgeneric is (symbol what))
 (defgeneric docs-for (symbol what))
@@ -122,14 +161,39 @@ keyword argument."
                `((defmethod pluralization ((,what (eql ',name)))
                    ,@pluralization))))))
 
+(defun function-p (name)
+  (ignore-errors (fdefinition name)))
+
+(defun generic-function-p (name)
+  (and (function-p name)
+       (typep (fdefinition name) 'generic-function)))
+
+(defun variable-p (name)
+  (ignore-errors (boundp name)))
+
+(defun automatic-p (docstring)
+  (member docstring '("automatically generated reader method" "automatically generated writer method") :test #'string-equal))
+
+(defun gf-docs (name)
+  (let ((simple (documentation (fdefinition name) t))
+        (from-setf (and (consp name) (documentation (fdefinition (second name)) t))))
+
+    (or
+     (and simple (not (automatic-p simple)) (format nil "The ~a" simple))
+     (and from-setf (not (automatic-p from-setf)) (format nil "Set the ~a" from-setf))
+     (first (remove-if #'automatic-p (remove nil (mapcar
+                         (lambda (m) (documentation m t))
+                         (generic-function-methods (fdefinition name)))))))))
+
+
 (define-category :function (symbol what)
-  (:is (and (fboundp symbol) (not (typep (symbol-function symbol) 'generic-function))))
+  (:is (and (function-p symbol)
+            (not (or (is symbol :generic-function) (is symbol :slot-accessor)))))
   (:docs (documentation symbol 'function)))
 
 (define-category :generic-function (symbol what)
-  (:is (and (fboundp symbol)
-            (typep (symbol-function symbol) 'generic-function)
-            (not (is symbol :accessor))))
+  (:is (and (generic-function-p symbol)
+            (not (is symbol :slot-accessor))))
   (:docs (documentation symbol 'function)))
 
 (define-category :class (symbol what)
@@ -142,20 +206,19 @@ keyword argument."
   (:docs (documentation (find-class symbol) t)))
 
 (define-category :variable (symbol what)
-  (:is (and (boundp symbol) (not (constantp symbol))))
+  (:is (and (variable-p symbol) (not (is symbol :constant))))
   (:docs   (documentation symbol 'variable)))
 
 (define-category :constant (symbol what)
-  (:is (and (boundp symbol) (constantp symbol)))
+  (:is (and (variable-p symbol) (constantp symbol)))
   (:docs (documentation symbol 'variable)))
 
-(define-category :accessor (symbol what)
-  (:is (and (fboundp symbol)
-            (fboundp `(setf ,symbol))
-            (typep (fdefinition symbol) 'generic-function)
-            (typep (fdefinition `(setf ,symbol)) 'generic-function)))
-  (:docs (documentation symbol 'function)))
-
-
+(define-category :slot-accessor (symbol what)
+  (:is (and (generic-function-p symbol)
+            (some (lambda (m)
+                    (or (eql (class-of m) (find-class 'standard-reader-method))
+                        (eql (class-of m) (find-class 'standard-writer-method))))
+                  (generic-function-methods (fdefinition symbol)))))
+  (:docs (gf-docs symbol)))
 
 
