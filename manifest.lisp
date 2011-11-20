@@ -47,6 +47,10 @@ keyword argument."
           (let ((s (send-headers request)))
             (format s "<html><head><title>Package: ~a</title><link rel='stylesheet' type='text/css' href='manifest.css'></head>" (package-name package))
             (format s "<body><h1>~a</h1>" (package-name package))
+
+            (when (package-nicknames package)
+              (format s "<p class='nicknames'>Nicknames: ~{~a~^, ~}</p>" (package-nicknames package)))
+
             (when (documentation package t)
               (format s "<body><p class='package-desc'>~a</p>" (documentation package t)))
 
