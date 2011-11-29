@@ -32,12 +32,12 @@ keyword argument."
 
 (defun manifest (request)
   (cond
-    ((string= (uri-path (request-uri request)) "/") (index-page request))
+    ((string= (request-path request) "/") (index-page request))
     (t (package-page request))))
 
 (defun package-page (request)
   (destructuring-bind (package-name &rest rest)
-      (split-sequence #\/ (subseq (uri-path (request-uri request)) 1))
+      (split-sequence #\/ (subseq (request-path request) 1))
     (declare (ignore rest))
 
     (let ((package (find-package (string-upcase package-name)))
@@ -256,5 +256,3 @@ keyword argument."
                         (eql (class-of m) (find-class 'standard-writer-method))))
                   (generic-function-methods (fdefinition symbol)))))
   (:docs (gf-docs symbol)))
-
-
