@@ -7,6 +7,7 @@
   :depends-on (:closer-mop
                :toot
                :puri
-               :split-sequence)
+               :split-sequence
+               :monkeylib-html)
   :components ((:file "packages")
                (:file "manifest" :depends-on ("packages"))))

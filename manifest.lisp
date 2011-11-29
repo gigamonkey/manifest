@@ -44,63 +44,79 @@ keyword argument."
           (some-docs-p nil))
       (cond
         (package
-          (let ((s (send-headers request)))
-            (format s "<html><head><title>Package: ~a</title><link rel='stylesheet' type='text/css' href='manifest.css'></head>" (package-name package))
-            (format s "<body><h1>~a</h1>" (package-name package))
+         (with-text-output ((send-headers request))
+           (html
+             (:html
+               (:head
+                (:title (:format "Package: ~a" (package-name package)))
+                (:link :rel "stylesheet" :type "text/css" :href "manifest.css"))
 
-            (when (package-nicknames package)
-              (format s "<p class='nicknames'>Nicknames: ~{~a~^, ~}</p>" (package-nicknames package)))
+               (:body
+                (:h1 (:print (package-name package))))
 
-            (when (documentation package t)
-              (format s "<body><p class='package-desc'>~a</p>" (documentation package t)))
+               (when (package-nicknames package)
+                 (html
+                   ((:p :class "nicknames")
+                    (:format "Nicknames: ~{~a~^, ~}" (package-nicknames package)))))
 
-            (let ((readme (readme-text package-name)))
-              (when readme
-                (setf some-docs-p t)
-                (format s "<pre>~a</pre>" (escape-for-html readme))))
+               (when (documentation package t)
+                 (html
+                   ((:p :class "package-desc") (:print (documentation package t)))))
 
-            (loop for what in *categories*
-               for names = (names package what)
-               when names do
-                 (setf some-docs-p t)
-                 (format s "~&<h2>~:(~a~)</h2>~&<table>" (pluralization what))
-                 (loop for sym in names do
-                      (format s "~&<tr><td class='symbol'>~(~a~)</td>
-<td class='docs'>~a</td></tr>"
-                              (escape-for-html (princ-to-string sym))
-                              (escape-for-html (or (docs-for sym what) "NO DOCS!"))))
-                 (format s "~&</table>"))
+               (let ((readme (readme-text package-name)))
+                 (when readme
+                   (setf some-docs-p t)
+                   (html (:pre readme))))
 
-            (let ((used-by (sort (package-used-by-list package) #'string< :key #'package-name)))
-              (when used-by
-                (format s "~&<h2>Used by:</h2>~&<ul>")
-                (loop for p in used-by do
-                     (format s "~&<li><a href='./~(~a~)'>~:*~a</a></li>" (package-name p)))
-                (format s "~&</ul>")))
-
-            (let ((uses (sort (package-use-list package) #'string< :key #'package-name)))
-              (when uses
-                (format s "~&<h2>Uses:</h2>~&<ul>")
-                (loop for p in uses do
-                     (format s "~&<li><a href='./~(~a~)'>~:*~a</a></li>" (package-name p)))
-                (format s "~&</ul>")))
-
-            (unless some-docs-p
-              (format s "<p>Uh oh! No docs at all.</p>"))
+               (loop for what in *categories*
+                  for names = (names package what)
+                  when names do
+                    (setf some-docs-p t)
+                    (html
+                      (:h2 (:format "~:(~a~)" (pluralization what)))
+                      (:table
+                       (dolist (sym names)
+                         (html
+                           (:tr
+                            (:td :class "symbol" (:print (string-downcase (princ-to-string sym))))
+                            (:td :class "docs" (:print (or (docs-for sym what) "NO DOCS!")))))))))
 
 
-            (format s "~&</body></html>")))
+               (let ((used-by (sort (package-used-by-list package) #'string< :key #'package-name)))
+                 (when used-by
+                   (html
+                     (:h2 "Used by:")
+                     (:ul
+                      (loop for p in used-by do
+                           (html (:li ((:a :href (:format "./~(~a~)" (package-name p)))
+                                       (:print (package-name p))))))))))
+
+               (let ((uses (sort (package-use-list package) #'string< :key #'package-name)))
+                 (when uses
+                   (html
+                     (:h2 "Uses:")
+                     (:ul
+                      (loop for p in uses do
+                           (html (:li ((:a :href (:format "./~(~a~)" (package-name p)))
+                                       (:print (package-name p))))))))))
+
+
+               (unless some-docs-p
+                 (html (:p "Uh oh! No docs at all.")))))))
         (t 'not-handled)))))
 
 (defun index-page (request)
-  (let ((s (send-headers request)))
-    (format s "<html><head><title>Manifest: all packages</title><link rel='stylesheet' type='text/css' href='manifest.css'></head>")
-    (format s "<body><h1>All Packages</h1>")
-    (format s "~&<ul>")
-    (loop for pkg in (sort (mapcar #'package-name (public-packages)) #'string<) do
-         (format s "<li><a href='~a'>~a</a></li>" (string-downcase pkg) pkg))
-    (format s "~&</ul>")
-    (format s "~&</body></html>")))
+  (with-text-output ((send-headers request))
+    (html
+      (:html
+        (:head
+         (:title "Manifest: all packages")
+         (:link :rel "stylesheet" :type "text/css" :href "manifest.css"))
+        (:body
+         (:h1 "All Packages")
+         (:ul
+          (loop for pkg in (sort (mapcar #'package-name (public-packages)) #'string<)
+             do (html (:li (:a :href (:format "./~a" (string-downcase pkg)) pkg))))))))))
 
 (defun public-packages ()
   (loop for p in (list-all-packages)
