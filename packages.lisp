@@ -1,11 +1,10 @@
 (in-package :cl-user)
 
 (defpackage :manifest
-  (:use :cl :toot :split-sequence :closer-mop :monkeylib-html :monkeylib-text-output)
-  (:shadowing-import-from :closer-mop
-                          :defmethod
-                          :defgeneric
-                          :standard-generic-function)
-
+  (:use :closer-common-lisp
+        :monkeylib-html
+        :monkeylib-text-output
+        :toot
+        :split-sequence)
   (:export :start
            :stop))
