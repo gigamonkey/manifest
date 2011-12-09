@@ -35,3 +35,7 @@ ul {
     column-count: 4;
 
 }
+
+.symbol, .package {
+    text-transform: lowercase;
+}

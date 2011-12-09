@@ -2,6 +2,11 @@
 
 (defvar *manifest-server* nil)
 
+(defparameter *inverting-readtable*
+    (let ((rt (copy-readtable nil)))
+      (setf (readtable-case rt) :invert)
+      rt))
+
 (defparameter *categories* '(:function :generic-function :slot-accessor :variable :class :condition :constant))
 
 (defun start (&key (port 0))
@@ -22,6 +27,13 @@ keyword argument."
   "Stop the manifest server, defaulting to *manifest-server*."
   (stop-acceptor server))
 
+(defun case-invert-name (name)
+  "Invert case of names so we can use nice lowercase names in URLs in
+a true Common Lisp while still working in Allegro's mlisp."
+  (let ((*readtable* *inverting-readtable*)
+        (*package* (find-package :keyword)))
+    (symbol-name (read-from-string name))))
+
 (defun make-handler (&optional (root-dir (asdf:system-relative-pathname :manifest nil)))
   (let ((static-files (make-instance 'static-file-handler :root root-dir)))
     (lambda (request)
@@ -40,7 +52,7 @@ keyword argument."
       (split-sequence #\/ (subseq (request-path request) 1))
     (declare (ignore rest))
 
-    (let ((package (find-package (string-upcase package-name)))
+    (let ((package (find-package (case-invert-name package-name)))
           (some-docs-p nil))
       (cond
         (package
@@ -78,7 +90,7 @@ keyword argument."
                        (dolist (sym names)
                          (html
                            (:tr
-                            (:td :class "symbol" (:print (string-downcase (princ-to-string sym))))
+                            (:td :class "symbol" (:print (princ-to-string sym)))
                             (:td :class "docs" (:print (or (docs-for sym what) "NO DOCS!")))))))))
 
 
@@ -116,7 +128,7 @@ keyword argument."
          (:h1 "All Packages")
          (:ul
           (loop for pkg in (sort (mapcar #'package-name (public-packages)) #'string<)
-             do (html (:li (:a :href (:format "./~a" (string-downcase pkg)) pkg))))))))))
+             do (html (:li (:a :class "package" :href (:format "./~a" (case-invert-name pkg)) pkg))))))))))
 
 (defun public-packages ()
   (loop for p in (list-all-packages)
