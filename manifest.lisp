@@ -79,7 +79,7 @@ keyword argument."
                          (html
                            (:tr
                             (:td :class "symbol" (:print (princ-to-string sym)))
-                            (:td :class "docs" (:print (or (docs-for sym what) "NO DOCS!")))))))))
+                            (:td :class "docs" (:pre (:print (or (docs-for sym what) "NO DOCS!"))))))))))
 
 
                (let ((used-by (sort (package-used-by-list package) #'string< :key #'package-name)))
