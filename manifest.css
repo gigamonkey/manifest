@@ -24,6 +24,14 @@ td.symbol {
     width: 250px;
 }
 
+.symbol {
+    text-transform: lowercase;
+}
+
+.package {
+    text-transform: uppercase;
+}
+
 td.docs {
 }
 
