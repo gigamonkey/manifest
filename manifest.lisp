@@ -40,7 +40,7 @@ keyword argument."
       (split-sequence #\/ (subseq (request-path request) 1))
     (declare (ignore rest))
 
-    (let ((package (find-package (string-upcase package-name)))
+    (let ((package (find-package package-name))
           (some-docs-p nil))
       (cond
         (package
@@ -52,11 +52,11 @@ keyword argument."
                 (:link :rel "stylesheet" :type "text/css" :href "manifest.css"))
 
                (:body
-                (:h1 (:print (package-name package))))
+                ((:h1 :class "package") (:print (package-name package))))
 
                (when (package-nicknames package)
                  (html
-                   ((:p :class "nicknames")
+                   ((:p :class "nicknames package")
                     (:format "Nicknames: ~{~a~^, ~}" (package-nicknames package)))))
 
                (when (documentation package t)
@@ -78,7 +78,7 @@ keyword argument."
                        (dolist (sym names)
                          (html
                            (:tr
-                            (:td :class "symbol" (:print (string-downcase (princ-to-string sym))))
+                            (:td :class "symbol" (:print (princ-to-string sym)))
                             (:td :class "docs" (:print (or (docs-for sym what) "NO DOCS!")))))))))
 
 
@@ -116,7 +116,7 @@ keyword argument."
          (:h1 "All Packages")
          (:ul
           (loop for pkg in (sort (mapcar #'package-name (public-packages)) #'string<)
-             do (html (:li (:a :href (:format "./~a" (string-downcase pkg)) pkg))))))))))
+             do (html (:li (:a :class "package" :href (:format "./~a" pkg) pkg))))))))))
 
 (defun public-packages ()
   (loop for p in (list-all-packages)
