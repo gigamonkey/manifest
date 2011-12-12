@@ -93,7 +93,7 @@ a true Common Lisp while still working in Allegro's mlisp."
                       (:table
                        (dolist (sym names)
                          (html
-                           (:tr
+                           ((:tr :class (:format "~:[not-documented~;~]" (docs-for sym what)))
                             (:td :class "symbol" (:print (princ-to-string sym)))
                             (:td :class "docs" (:print (or (docs-for sym what) "NO DOCS!")))))))))
 
