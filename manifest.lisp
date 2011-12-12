@@ -45,12 +45,16 @@ a true Common Lisp while still working in Allegro's mlisp."
 (defun manifest (request)
   (cond
     ((string= (request-path request) "/") (index-page request))
-    (t (package-page request))))
+    ((string= (request-path request) "/quicklisp") (quicklisp-page request))
+    ((starts-with-subseq "/quicklisp/install/" (request-path request)) (quicklisp-install request))
+    ((starts-with-subseq "/package/" (request-path request)) (package-page request))
+    (t 'not-handled)))
 
 (defun package-page (request)
-  (destructuring-bind (package-name &rest rest)
+  (destructuring-bind (prefix package-name &rest rest)
       (split-sequence #\/ (subseq (request-path request) 1))
     (declare (ignore rest))
+    (assert (string= prefix "package"))
 
     (let ((package (find-package (case-invert-name package-name)))
           (some-docs-p nil))
@@ -61,7 +65,7 @@ a true Common Lisp while still working in Allegro's mlisp."
              (:html
                (:head
                 (:title (:format "Package: ~a" (package-name package)))
-                (:link :rel "stylesheet" :type "text/css" :href "manifest.css"))
+                (:link :rel "stylesheet" :type "text/css" :href "/manifest.css"))
 
                (:body
                 (:h1 (:print (package-name package))))
@@ -123,12 +127,47 @@ a true Common Lisp while still working in Allegro's mlisp."
       (:html
         (:head
          (:title "Manifest: all packages")
-         (:link :rel "stylesheet" :type "text/css" :href "manifest.css"))
+         (:link :rel "stylesheet" :type "text/css" :href "/manifest.css"))
         (:body
          (:h1 "All Packages")
          (:ul
           (loop for pkg in (sort (mapcar #'package-name (public-packages)) #'string<)
-             do (html (:li (:a :class "package" :href (:format "./~a" (case-invert-name pkg)) pkg))))))))))
+             do (html (:li (:a :class "package" :href (:format "/package/~a" (case-invert-name pkg)) pkg))))))))))
+
+(defun quicklisp-page (request)
+  (with-text-output ((send-headers request))
+    (html
+      (:html
+        (:head
+         (:title "Manifest: Quicklisp browser")
+         (:link :rel "stylesheet" :type "text/css" :href "manifest.css"))
+        (:body
+         (:h1 "Dists")
+         (loop for dist in (ql-dist:all-dists) do
+              (html
+                (:h2 (:print (ql-dist:name dist)))
+                (:table
+                 (loop for release in (ql-dist:provided-releases dist)
+                    for name = (ql-dist:name release)
+                    for installedp = (ql-dist:installedp release)
+                    do
+                      (html
+                        (:tr
+                         (:td
+                          (if installedp
+                              (html name)
+                              (html (:a :href (:format "/quicklisp/install/~a" name) name))))
+                         (:td installedp))))))))))))
+
+(defun quicklisp-install (request)
+  (destructuring-bind (quicklisp install system &rest rest)
+      (split-sequence #\/ (subseq (request-path request) 1))
+    (declare (ignore rest))
+    (assert (string= quicklisp "quicklisp"))
+    (assert (string= install "install"))
+
+    (ql:quickload system)
+    (redirect request "/quicklisp")))
 
 (defun public-packages ()
   (loop for p in (list-all-packages)

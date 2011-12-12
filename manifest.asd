@@ -4,7 +4,8 @@
 
 (defsystem :manifest
   :description "A system for semi-automatically documenting Common Lisp packages."
-  :depends-on (:closer-mop
+  :depends-on (:alexandria
+               :closer-mop
                :toot
                :puri
                :split-sequence

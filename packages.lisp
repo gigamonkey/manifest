@@ -5,6 +5,7 @@
         :monkeylib-html
         :monkeylib-text-output
         :toot
-        :split-sequence)
+        :split-sequence
+        :alexandria)
   (:export :start
            :stop))
