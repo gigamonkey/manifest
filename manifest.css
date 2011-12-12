@@ -39,3 +39,7 @@ ul {
 .symbol, .package {
     text-transform: lowercase;
 }
+
+tr.not-documented>td.docs {
+    color: gray;
+}
