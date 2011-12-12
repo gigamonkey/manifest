@@ -8,6 +8,7 @@
                :toot
                :puri
                :split-sequence
-               :monkeylib-html)
+               :monkeylib-html
+               :cl-fad)
   :components ((:file "packages")
                (:file "manifest" :depends-on ("packages"))))
