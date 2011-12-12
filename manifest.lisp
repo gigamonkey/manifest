@@ -161,11 +161,13 @@ a true Common Lisp while still working in Allegro's mlisp."
 (defun readme-text (package-name)
   (let ((dir (ignore-errors (asdf:system-relative-pathname package-name nil))))
     (when dir
-      (with-open-file (in (merge-pathnames "README" dir) :if-does-not-exist nil)
-        (when in
-          (with-output-to-string (s)
-            (loop for line = (read-line in nil nil)
-               while line do (write-line line s))))))))
+      (let ((readme (car (directory (merge-pathnames "README.*" dir)))))
+        (when readme
+         (with-open-file (in readme :if-does-not-exist nil)
+           (when in
+             (with-output-to-string (s)
+               (loop for line = (read-line in nil nil)
+                     while line do (write-line line s))))))))))
 
 (defun names (package what)
   (sort
