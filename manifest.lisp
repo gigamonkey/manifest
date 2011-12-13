@@ -37,10 +37,11 @@ a true Common Lisp while still working in Allegro's mlisp."
 (defun make-handler (&optional (root-dir (asdf:system-relative-pathname :manifest nil)))
   (let ((static-files (make-instance 'static-file-handler :root root-dir)))
     (lambda (request)
-      (let ((result (manifest request)))
-        (case result
-          (not-handled (handle-request static-files request))
-          (t result))))))
+      (let ((*default-pathname-defaults* root-dir))
+        (let ((result (manifest request)))
+          (case result
+            (not-handled (handle-request static-files request))
+            (t result)))))))
 
 (defun manifest (request)
   (cond
@@ -130,34 +131,77 @@ a true Common Lisp while still working in Allegro's mlisp."
          (:link :rel "stylesheet" :type "text/css" :href "/manifest.css"))
         (:body
          (:h1 "All Packages")
-         (:ul
+         ((:ul :class "packages")
           (loop for pkg in (sort (mapcar #'package-name (public-packages)) #'string<)
              do (html (:li (:a :class "package" :href (:format "/package/~a" (case-invert-name pkg)) pkg))))))))))
 
+(defun system-descriptions ()
+  "Temporary hack until Xach provides a way to get this programatically from Quicklisp."
+  (let ((h (make-hash-table :test #'equal)))
+    (with-open-file (in "descriptions.txt")
+      (loop for line = (read-line in nil nil)
+         while line do
+           (let* ((pos (search " - " line))
+                  (name (subseq line 0 pos))
+                  (description (subseq line (+ pos 3))))
+             (setf (gethash name h) description))))
+    h))
+
 (defun quicklisp-page (request)
-  (with-text-output ((send-headers request))
-    (html
-      (:html
-        (:head
-         (:title "Manifest: Quicklisp browser")
-         (:link :rel "stylesheet" :type "text/css" :href "manifest.css"))
-        (:body
-         (:h1 "Dists")
-         (loop for dist in (ql-dist:all-dists) do
-              (html
-                (:h2 (:print (ql-dist:name dist)))
-                (:table
-                 (loop for release in (ql-dist:provided-releases dist)
-                    for name = (ql-dist:name release)
-                    for installedp = (ql-dist:installedp release)
-                    do
-                      (html
-                        (:tr
-                         (:td
-                          (if installedp
-                              (html name)
-                              (html (:a :href (:format "/quicklisp/install/~a" name) name))))
-                         (:td installedp))))))))))))
+  (let ((descriptions (system-descriptions)))
+    (with-text-output ((send-headers request))
+      (html
+        (:html
+          (:head
+           (:title "Manifest: Quicklisp browser")
+           (:link :rel "stylesheet" :type "text/css" :href "manifest.css"))
+          (:body
+           (:h1 "Dists")
+           (loop for dist in (ql-dist:all-dists) do
+                (html
+                  (:h2 (:print (ql-dist:name dist)))
+                  (:table
+                   (:thead
+                    (:th "Project")
+                    (:th "Systems")
+                    (:th "Installed?"))
+                   (:tbody
+                    (loop for release in (ql-dist:provided-releases dist)
+                       for name = (ql-dist:name release)
+                       for installedp = (ql-dist:installedp release)
+                       do
+                       (html
+                         (:tr
+                          (:td name)
+                          (:td
+                           (:ul
+                            (loop for system in (ql-dist:provided-systems release)
+                               for name = (ql-dist:name system)
+                               for description = (gethash name descriptions "NO DESCRIPTION!")
+                               do
+                               (html (:li (:format "~a: ~a" name description))))))
+                          (:td
+                           (if installedp
+                               (html "✓")
+                               (html (:a :href (:format "/quicklisp/install/~a" name) "Install")))))))))))))))))
+
+(defun foo ()
+  (let ((dist (ql-dist:find-dist "quicklisp"))
+        (systems (make-hash-table))
+        (in (make-hash-table))
+        (out (make-hash-table))
+        (all (make-hash-table)))
+    (flet ((record-dependency (system dep)
+             (setf (gethash system all) t)
+             (setf (gethash dep all) t)
+             (incf (gethash system out 0))
+             (incf (gethash dep in 0))))
+      (loop for release in (ql-dist:provided-releases dist) do
+         (loop for system in (ql-dist:provided-systems release) do
+              (loop for dep in (ql-dist:required-systems system) do
+                   (format t "~&~a requires ~a" (ql-dist:name system) dep)))))))
+
+
 
 (defun quicklisp-install (request)
   (destructuring-bind (quicklisp install system &rest rest)
