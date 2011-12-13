@@ -162,28 +162,23 @@ a true Common Lisp while still working in Allegro's mlisp."
                   (:h2 (:print (ql-dist:name dist)))
                   (:table
                    (:thead
-                    (:th "Project")
-                    (:th "Systems")
+                    (:th "System")
+                    (:th "Description")
                     (:th "Installed?"))
                    (:tbody
-                    (loop for release in (ql-dist:provided-releases dist)
-                       for name = (ql-dist:name release)
-                       for installedp = (ql-dist:installedp release)
+                    (loop for system in (ql-dist:provided-systems dist)
+                       for name = (ql-dist:name system)
+                       for installedp = (ql-dist:installedp system)
+                       for description = (gethash name descriptions "NO DESCRIPTION!")
                        do
-                       (html
-                         (:tr
-                          (:td name)
-                          (:td
-                           (:ul
-                            (loop for system in (ql-dist:provided-systems release)
-                               for name = (ql-dist:name system)
-                               for description = (gethash name descriptions "NO DESCRIPTION!")
-                               do
-                               (html (:li (:format "~a: ~a" name description))))))
-                          (:td
-                           (if installedp
-                               (html "✓")
-                               (html (:a :href (:format "/quicklisp/install/~a" name) "Install")))))))))))))))))
+                         (html
+                           (:tr
+                            (:td name)
+                            (:td description)
+                            (:td
+                             (if installedp
+                                 (html "✓")
+                                 (html (:a :href (:format "/quicklisp/install/~a" name) "Install")))))))))))))))))
 
 (defun foo ()
   (let ((dist (ql-dist:find-dist "quicklisp"))
