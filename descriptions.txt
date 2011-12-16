@@ -1,0 +1,1194 @@
+able - A Common Lisp editor
+access - A library providing functions that unify data-structure access for Common Lisp: access and (setf access)
+acl-compat - A reimplementation of parts of the ACL API, mainly to get AllegroServe running on various machines, but might be useful in other projects as well.
+adw-charting-google - Charting package to make graphs and charts using the Google chart API
+adw-charting - Charting package to make pretty graphs and charts
+adw-charting-vecto - Charting package to make pretty graphs and charts using Vecto
+alexandria - Alexandria is a collection of portable public domain utilities.
+amazon-ecs - Amazon Product Advertising API library for Common Lisp
+antik - A library providing a foundation for computational mathematics, science, and engineering.
+apropos - apropos
+archive - A package for reading and writing archive (tar, cpio, etc.) files.
+arith - Basic Parenscript functions for AJAX.
+aromyxo - Messy collection of utilities and hacks. A scratchpad.
+array-operations - Array operations (formerly part of FFA)
+asdf-defdoc - Defdoc integration with ASDF
+asdf-nst - NST integration with ASDF
+asdf-system-connections - Allows for ASDF system to be connected so that auto-loading may occur.
+asn.1 - ASN.1 for Common Lisp
+babel-streams - Some useful streams based on Babel's encoding code
+babel-tests - Unit tests for Babel.
+babel - Babel, a charset conversion library.
+bencode - Bencode
+bert - BERT serializer.
+big-endian - Binary file big endian format provides interface to read and write binary files.
+binary-types - A library for reading and writing binary records.
+binascii - A library of ASCII encoding schemes for binary data
+binge - Bovine INterface GEnerator
+binomial-heap - A compact binomial heap implementation.
+bknr.data.impex - baikonour - launchpad for lisp satellites
+bknr.datastore - baikonour - launchpad for lisp satellites
+bknr.impex - BKNR XML import/export
+bknr.indices - CLOS class indices
+bknr.modules - Baikonour - Launchpad for LISP satellites - Application modules
+bknr.skip-list - Skiplist implementation for bknr
+bknr.utils - baikonour - launchpad for lisp satellites
+bknr.web - Baikonour - Launchpad for LISP satellites - Base system
+bknr.xml - baikonour - launchpad for lisp satellites
+blackthorn-collision-test - Bunny Slayer, an adventure game.
+blackthorn-stress-test - Blackthorn game engine stress test.
+blas-complex - BLAS routines for complex double-float matrices
+blas-package - Package definition for BLAS
+blas-real - BLAS routines for real double-float matrices
+buildapp - Buildapp is an application for SBCL that configures and saves an executable Common Lisp image or non-executable core.
+buildnode-excel - Tool for building up an xml dom of an excel spreadsheet nicely.
+buildnode-kml - Tool for building up an xml dom of an KML.
+buildnode - Tool for building up an xml dom nicely.
+buildnode-xhtml - Tool for building up an xml dom of an excel spreadsheet nicely.
+buildnode-xul - Tool for building up an xml dom of an excel spreadsheet nicely.
+bunnyslayer - Bunny Slayer, an adventure game.
+calispel - Thread-safe message-passing channels, in the style of the occam programming language.
+caveman - Web Application Framework for Common Lisp
+cells-test - Cells Regression Test/Documentation
+cells - Cells
+cffi-examples - CFFI Examples
+cffi-grovel - The CFFI Groveller
+cffi-object - CFFI utilities for object wrappers and Unicode
+cffi-tests - Unit tests for CFFI.
+cffi - The Common Foreign Function Interface
+cffi-uffi-compat - UFFI Compatibility Layer for CFFI
+chanl - Communicating Sequential Process support for Common Lisp
+chillax.core - CouchDB abstraction layer - core API and protocols.
+chillax.jsown - CouchDB abstraction layer - Implementation of protocols using JSOWN.
+chillax - CouchDB abstraction layer - Easy-load system with sane defaults
+chillax.view-server - View server for CouchDB
+chillax.yason - CouchDB abstraction layer - Implementation of protocols using Yason.
+ch-image - image representation and processing
+chipz - A library for decompressing deflate, zlib, and gzip data
+chtml-matcher - A unifying template matcher based on closure-html for web scraping and extraction
+cl-2d - 2D graphs for Common Lisp, using Cairo
+cl-aa-misc - cl-aa-misc: some tools related to cl-aa
+cl-aa - cl-aa: polygon rasterizer
+clack-app-route - URL dispatcher
+clack-middleware-clsql - Middleware for CLSQL connection management
+clack-middleware-csrf - Middleware for easy CSRF protection
+clack-middleware-oauth - Supports authorization mechanism by OAuth
+clack-middleware-rucksack - Middleware for Rucksack connection management
+clack - Web application environment for Common Lisp
+cl-adt - Algebraic data types
+cl-alc - CFFI bindings for OpenAL's ALC API.
+cl-alut - CFFI bindings for OpenAL's ALUT API.
+cl-annot - Python-like Annotation Syntax for Common Lisp
+cl-anonfun - Anonymous function helpers for Common Lisp
+cl-api - Simple API HTML generator
+cl-apple-plist - Encodes Common Lisp data structures in Apple property list XML format (.plist).
+cl-authorize-net - library for talking with authorize.net credit card processors.
+cl-autorepo - A simple mechanism to auto-load ASDF systems from repositories.
+clawk - Common Lisp AWK
+cl-azure - Windows Azure support for Common Lisp
+clazy - The CLAZY System.
+cl-base64 - Base64 encoding and decoding with URI support.
+cl-beanstalk - An interface to the beanstalk queue server
+cl-binary-file-0.4 - Binary file format provides interface to read and write binary files.
+cl-bloom - Simple Bloom filters with efficient hashing.
+cl-btree-0.5 - B-tree is a trivial disk serialized B-tree implementation.
+cl-buchberger - cl-buchberger: A Common Lisp implementation of Buchberger's algorithm.
+cl-cairo2-gtk2 - Cairo 1.8 bindings, GTK context.
+cl-cairo2 - Cairo 1.8 bindings
+cl-cairo2-xlib - Cairo 1.8 bindings, xlib surface and GTK extension
+cl-charms - Bindings for curses
+cl-colors - Simple color library for Common Lisp
+cl-containers-test - Tests for CL-Containers
+cl-containers - A generic container library for Common Lisp
+cl-cont-test - A test harness for cl-cont library.
+cl-cont - A library that implements continuations by transforming Common Lisp code to continuation passing style.
+cl-creditcard - Generic interace library for talking with credit card processors.
+cl-csv-clsql - Facilities for reading and writing CSV format files (and importing and exporting csvs from databases)
+cl-csv - Facilities for reading and writing CSV format files
+cl-difflib - A Lisp library for computing differences between sequences.
+cl-dot - Generate Dot Output from Arbitrary Lisp Data
+cl-dropbox - Common Lisp Client for the Dropbox API.
+cleric - Common Lisp Erlang Interface - An implementation of the Erlang distribution protocol.
+cletris-network - A tetris game.
+cletris - A tetris game.
+cl-ewkb - cl-ewkb is a geospatial library, based on cl-wkb, that implements the OGC Well-Known Binary geographic geometry data model with PostGIS 3d, 4d extensions, and provides WKB and EWKB encoding and decoding functionality. cl-wkb author is J.P. Larocue.
+cl-fastcgi - FastCGI wrapper for Common Lisp
+clfswm - CLFSWM: Fullscreen Window Manager
+cl-generic-arithmetic - The COMMON-LISP package with generic numerical operators.
+cl-gene-searcher - A simple interface to a SQLite database for querying information for genes, and DGV Tracks.
+cl-geometry-tests - Tests for cl-geometry.
+cl-geometry - Two dimensional geometry.
+cl-glfw-glu - Common Lisp bindings for GLU (cl-glfw version)
+cl-glfw-glu-version_1_1 - Common Lisp bindings for GLFW - GLU 1.1 Extension Package
+cl-glfw-glu-version_1_2 - Common Lisp bindings for GLFW - GLU 1.2 Extension Package
+cl-glfw-glu-version_1_3 - Common Lisp bindings for GLFW - GLU 1.3 Extension Package
+cl-glfw-opengl-3dfx_multisample - cl-glfw's 3dfx_multisample binding
+cl-glfw-opengl-3dfx_tbuffer - cl-glfw's 3dfx_tbuffer binding
+cl-glfw-opengl-3dfx_texture_compression_fxt1 - cl-glfw's 3dfx_texture_compression_fxt1 binding
+cl-glfw-opengl-amd_blend_minmax_factor - cl-glfw's amd_blend_minmax_factor binding
+cl-glfw-opengl-amd_debug_output - cl-glfw's amd_debug_output binding
+cl-glfw-opengl-amd_depth_clamp_separate - cl-glfw's amd_depth_clamp_separate binding
+cl-glfw-opengl-amd_draw_buffers_blend - cl-glfw's amd_draw_buffers_blend binding
+cl-glfw-opengl-amd_multi_draw_indirect - cl-glfw's amd_multi_draw_indirect binding
+cl-glfw-opengl-amd_name_gen_delete - cl-glfw's amd_name_gen_delete binding
+cl-glfw-opengl-amd_performance_monitor - cl-glfw's amd_performance_monitor binding
+cl-glfw-opengl-amd_sample_positions - cl-glfw's amd_sample_positions binding
+cl-glfw-opengl-amd_seamless_cubemap_per_texture - cl-glfw's amd_seamless_cubemap_per_texture binding
+cl-glfw-opengl-amd_vertex_shader_tesselator - cl-glfw's amd_vertex_shader_tesselator binding
+cl-glfw-opengl-apple_aux_depth_stencil - cl-glfw's apple_aux_depth_stencil binding
+cl-glfw-opengl-apple_client_storage - cl-glfw's apple_client_storage binding
+cl-glfw-opengl-apple_element_array - cl-glfw's apple_element_array binding
+cl-glfw-opengl-apple_fence - cl-glfw's apple_fence binding
+cl-glfw-opengl-apple_float_pixels - cl-glfw's apple_float_pixels binding
+cl-glfw-opengl-apple_flush_buffer_range - cl-glfw's apple_flush_buffer_range binding
+cl-glfw-opengl-apple_object_purgeable - cl-glfw's apple_object_purgeable binding
+cl-glfw-opengl-apple_rgb_422 - cl-glfw's apple_rgb_422 binding
+cl-glfw-opengl-apple_row_bytes - cl-glfw's apple_row_bytes binding
+cl-glfw-opengl-apple_specular_vector - cl-glfw's apple_specular_vector binding
+cl-glfw-opengl-apple_texture_range - cl-glfw's apple_texture_range binding
+cl-glfw-opengl-apple_transform_hint - cl-glfw's apple_transform_hint binding
+cl-glfw-opengl-apple_vertex_array_object - cl-glfw's apple_vertex_array_object binding
+cl-glfw-opengl-apple_vertex_array_range - cl-glfw's apple_vertex_array_range binding
+cl-glfw-opengl-apple_vertex_program_evaluators - cl-glfw's apple_vertex_program_evaluators binding
+cl-glfw-opengl-apple_ycbcr_422 - cl-glfw's apple_ycbcr_422 binding
+cl-glfw-opengl-arb_blend_func_extended - cl-glfw's arb_blend_func_extended binding
+cl-glfw-opengl-arb_cl_event - cl-glfw's arb_cl_event binding
+cl-glfw-opengl-arb_color_buffer_float - cl-glfw's arb_color_buffer_float binding
+cl-glfw-opengl-arb_copy_buffer - cl-glfw's arb_copy_buffer binding
+cl-glfw-opengl-arb_debug_output - cl-glfw's arb_debug_output binding
+cl-glfw-opengl-arb_depth_buffer_float - cl-glfw's arb_depth_buffer_float binding
+cl-glfw-opengl-arb_depth_clamp - cl-glfw's arb_depth_clamp binding
+cl-glfw-opengl-arb_depth_texture - cl-glfw's arb_depth_texture binding
+cl-glfw-opengl-arb_draw_buffers_blend - cl-glfw's arb_draw_buffers_blend binding
+cl-glfw-opengl-arb_draw_buffers - cl-glfw's arb_draw_buffers binding
+cl-glfw-opengl-arb_draw_elements_base_vertex - cl-glfw's arb_draw_elements_base_vertex binding
+cl-glfw-opengl-arb_draw_indirect - cl-glfw's arb_draw_indirect binding
+cl-glfw-opengl-arb_draw_instanced - cl-glfw's arb_draw_instanced binding
+cl-glfw-opengl-arb_es2_compatibility - cl-glfw's arb_es2_compatibility binding
+cl-glfw-opengl-arb_fragment_program - cl-glfw's arb_fragment_program binding
+cl-glfw-opengl-arb_fragment_shader - cl-glfw's arb_fragment_shader binding
+cl-glfw-opengl-arb_framebuffer_object_deprecated - cl-glfw's arb_framebuffer_object_deprecated binding
+cl-glfw-opengl-arb_framebuffer_object - cl-glfw's arb_framebuffer_object binding
+cl-glfw-opengl-arb_framebuffer_srgb - cl-glfw's arb_framebuffer_srgb binding
+cl-glfw-opengl-arb_geometry_shader4 - cl-glfw's arb_geometry_shader4 binding
+cl-glfw-opengl-arb_get_program_binary - cl-glfw's arb_get_program_binary binding
+cl-glfw-opengl-arb_gpu_shader5 - cl-glfw's arb_gpu_shader5 binding
+cl-glfw-opengl-arb_gpu_shader_fp64 - cl-glfw's arb_gpu_shader_fp64 binding
+cl-glfw-opengl-arb_half_float_pixel - cl-glfw's arb_half_float_pixel binding
+cl-glfw-opengl-arb_half_float_vertex - cl-glfw's arb_half_float_vertex binding
+cl-glfw-opengl-arb_imaging_deprecated - cl-glfw's arb_imaging_deprecated binding
+cl-glfw-opengl-arb_imaging - cl-glfw's arb_imaging binding
+cl-glfw-opengl-arb_instanced_arrays - cl-glfw's arb_instanced_arrays binding
+cl-glfw-opengl-arb_map_buffer_range - cl-glfw's arb_map_buffer_range binding
+cl-glfw-opengl-arb_matrix_palette - cl-glfw's arb_matrix_palette binding
+cl-glfw-opengl-arb_multisample - cl-glfw's arb_multisample binding
+cl-glfw-opengl-arb_multitexture - cl-glfw's arb_multitexture binding
+cl-glfw-opengl-arb_occlusion_query2 - cl-glfw's arb_occlusion_query2 binding
+cl-glfw-opengl-arb_occlusion_query - cl-glfw's arb_occlusion_query binding
+cl-glfw-opengl-arb_pixel_buffer_object - cl-glfw's arb_pixel_buffer_object binding
+cl-glfw-opengl-arb_point_parameters - cl-glfw's arb_point_parameters binding
+cl-glfw-opengl-arb_point_sprite - cl-glfw's arb_point_sprite binding
+cl-glfw-opengl-arb_provoking_vertex - cl-glfw's arb_provoking_vertex binding
+cl-glfw-opengl-arb_robustness - cl-glfw's arb_robustness binding
+cl-glfw-opengl-arb_sampler_objects - cl-glfw's arb_sampler_objects binding
+cl-glfw-opengl-arb_sample_shading - cl-glfw's arb_sample_shading binding
+cl-glfw-opengl-arb_seamless_cube_map - cl-glfw's arb_seamless_cube_map binding
+cl-glfw-opengl-arb_separate_shader_objects - cl-glfw's arb_separate_shader_objects binding
+cl-glfw-opengl-arb_shader_objects - cl-glfw's arb_shader_objects binding
+cl-glfw-opengl-arb_shader_subroutine - cl-glfw's arb_shader_subroutine binding
+cl-glfw-opengl-arb_shading_language_100 - cl-glfw's arb_shading_language_100 binding
+cl-glfw-opengl-arb_shading_language_include - cl-glfw's arb_shading_language_include binding
+cl-glfw-opengl-arb_shadow_ambient - cl-glfw's arb_shadow_ambient binding
+cl-glfw-opengl-arb_shadow - cl-glfw's arb_shadow binding
+cl-glfw-opengl-arb_sync - cl-glfw's arb_sync binding
+cl-glfw-opengl-arb_tessellation_shader - cl-glfw's arb_tessellation_shader binding
+cl-glfw-opengl-arb_texture_border_clamp - cl-glfw's arb_texture_border_clamp binding
+cl-glfw-opengl-arb_texture_buffer_object_rgb32 - cl-glfw's arb_texture_buffer_object_rgb32 binding
+cl-glfw-opengl-arb_texture_buffer_object - cl-glfw's arb_texture_buffer_object binding
+cl-glfw-opengl-arb_texture_compression_bptc - cl-glfw's arb_texture_compression_bptc binding
+cl-glfw-opengl-arb_texture_compression_rgtc - cl-glfw's arb_texture_compression_rgtc binding
+cl-glfw-opengl-arb_texture_compression - cl-glfw's arb_texture_compression binding
+cl-glfw-opengl-arb_texture_cube_map_array - cl-glfw's arb_texture_cube_map_array binding
+cl-glfw-opengl-arb_texture_cube_map - cl-glfw's arb_texture_cube_map binding
+cl-glfw-opengl-arb_texture_env_combine - cl-glfw's arb_texture_env_combine binding
+cl-glfw-opengl-arb_texture_env_dot3 - cl-glfw's arb_texture_env_dot3 binding
+cl-glfw-opengl-arb_texture_float - cl-glfw's arb_texture_float binding
+cl-glfw-opengl-arb_texture_gather - cl-glfw's arb_texture_gather binding
+cl-glfw-opengl-arb_texture_mirrored_repeat - cl-glfw's arb_texture_mirrored_repeat binding
+cl-glfw-opengl-arb_texture_multisample - cl-glfw's arb_texture_multisample binding
+cl-glfw-opengl-arb_texture_rectangle - cl-glfw's arb_texture_rectangle binding
+cl-glfw-opengl-arb_texture_rgb10_a2ui - cl-glfw's arb_texture_rgb10_a2ui binding
+cl-glfw-opengl-arb_texture_rg - cl-glfw's arb_texture_rg binding
+cl-glfw-opengl-arb_texture_swizzle - cl-glfw's arb_texture_swizzle binding
+cl-glfw-opengl-arb_timer_query - cl-glfw's arb_timer_query binding
+cl-glfw-opengl-arb_transform_feedback2 - cl-glfw's arb_transform_feedback2 binding
+cl-glfw-opengl-arb_transform_feedback3 - cl-glfw's arb_transform_feedback3 binding
+cl-glfw-opengl-arb_transpose_matrix - cl-glfw's arb_transpose_matrix binding
+cl-glfw-opengl-arb_uniform_buffer_object - cl-glfw's arb_uniform_buffer_object binding
+cl-glfw-opengl-arb_vertex_array_bgra - cl-glfw's arb_vertex_array_bgra binding
+cl-glfw-opengl-arb_vertex_array_object - cl-glfw's arb_vertex_array_object binding
+cl-glfw-opengl-arb_vertex_attrib_64bit - cl-glfw's arb_vertex_attrib_64bit binding
+cl-glfw-opengl-arb_vertex_blend - cl-glfw's arb_vertex_blend binding
+cl-glfw-opengl-arb_vertex_buffer_object - cl-glfw's arb_vertex_buffer_object binding
+cl-glfw-opengl-arb_vertex_program - cl-glfw's arb_vertex_program binding
+cl-glfw-opengl-arb_vertex_shader - cl-glfw's arb_vertex_shader binding
+cl-glfw-opengl-arb_vertex_type_2_10_10_10_rev - cl-glfw's arb_vertex_type_2_10_10_10_rev binding
+cl-glfw-opengl-arb_viewport_array - cl-glfw's arb_viewport_array binding
+cl-glfw-opengl-arb_window_pos - cl-glfw's arb_window_pos binding
+cl-glfw-opengl-ati_draw_buffers - cl-glfw's ati_draw_buffers binding
+cl-glfw-opengl-ati_element_array - cl-glfw's ati_element_array binding
+cl-glfw-opengl-ati_envmap_bumpmap - cl-glfw's ati_envmap_bumpmap binding
+cl-glfw-opengl-ati_fragment_shader - cl-glfw's ati_fragment_shader binding
+cl-glfw-opengl-ati_map_object_buffer - cl-glfw's ati_map_object_buffer binding
+cl-glfw-opengl-ati_meminfo - cl-glfw's ati_meminfo binding
+cl-glfw-opengl-ati_pixel_format_float - cl-glfw's ati_pixel_format_float binding
+cl-glfw-opengl-ati_pn_triangles - cl-glfw's ati_pn_triangles binding
+cl-glfw-opengl-ati_separate_stencil - cl-glfw's ati_separate_stencil binding
+cl-glfw-opengl-ati_text_fragment_shader - cl-glfw's ati_text_fragment_shader binding
+cl-glfw-opengl-ati_texture_env_combine3 - cl-glfw's ati_texture_env_combine3 binding
+cl-glfw-opengl-ati_texture_float - cl-glfw's ati_texture_float binding
+cl-glfw-opengl-ati_texture_mirror_once - cl-glfw's ati_texture_mirror_once binding
+cl-glfw-opengl-ati_vertex_array_object - cl-glfw's ati_vertex_array_object binding
+cl-glfw-opengl-ati_vertex_attrib_array_object - cl-glfw's ati_vertex_attrib_array_object binding
+cl-glfw-opengl-ati_vertex_streams - cl-glfw's ati_vertex_streams binding
+cl-glfw-opengl-core - Common Lisp bindings for OpenGL (cl-glfw version)
+cl-glfw-opengl-ext_422_pixels - cl-glfw's ext_422_pixels binding
+cl-glfw-opengl-ext_abgr - cl-glfw's ext_abgr binding
+cl-glfw-opengl-ext_bgra - cl-glfw's ext_bgra binding
+cl-glfw-opengl-ext_bindable_uniform - cl-glfw's ext_bindable_uniform binding
+cl-glfw-opengl-ext_blend_color - cl-glfw's ext_blend_color binding
+cl-glfw-opengl-ext_blend_equation_separate - cl-glfw's ext_blend_equation_separate binding
+cl-glfw-opengl-ext_blend_func_separate - cl-glfw's ext_blend_func_separate binding
+cl-glfw-opengl-ext_blend_minmax - cl-glfw's ext_blend_minmax binding
+cl-glfw-opengl-ext_blend_subtract - cl-glfw's ext_blend_subtract binding
+cl-glfw-opengl-ext_clip_volume_hint - cl-glfw's ext_clip_volume_hint binding
+cl-glfw-opengl-ext_cmyka - cl-glfw's ext_cmyka binding
+cl-glfw-opengl-ext_color_subtable - cl-glfw's ext_color_subtable binding
+cl-glfw-opengl-ext_compiled_vertex_array - cl-glfw's ext_compiled_vertex_array binding
+cl-glfw-opengl-ext_convolution - cl-glfw's ext_convolution binding
+cl-glfw-opengl-ext_coordinate_frame - cl-glfw's ext_coordinate_frame binding
+cl-glfw-opengl-ext_copy_texture - cl-glfw's ext_copy_texture binding
+cl-glfw-opengl-ext_cull_vertex - cl-glfw's ext_cull_vertex binding
+cl-glfw-opengl-ext_depth_bounds_test - cl-glfw's ext_depth_bounds_test binding
+cl-glfw-opengl-ext_direct_state_access - cl-glfw's ext_direct_state_access binding
+cl-glfw-opengl-ext_draw_buffers2 - cl-glfw's ext_draw_buffers2 binding
+cl-glfw-opengl-ext_draw_instanced - cl-glfw's ext_draw_instanced binding
+cl-glfw-opengl-ext_draw_range_elements - cl-glfw's ext_draw_range_elements binding
+cl-glfw-opengl-ext_fog_coord - cl-glfw's ext_fog_coord binding
+cl-glfw-opengl-ext_framebuffer_blit - cl-glfw's ext_framebuffer_blit binding
+cl-glfw-opengl-ext_framebuffer_multisample - cl-glfw's ext_framebuffer_multisample binding
+cl-glfw-opengl-ext_framebuffer_object - cl-glfw's ext_framebuffer_object binding
+cl-glfw-opengl-ext_framebuffer_srgb - cl-glfw's ext_framebuffer_srgb binding
+cl-glfw-opengl-ext_geometry_shader4 - cl-glfw's ext_geometry_shader4 binding
+cl-glfw-opengl-ext_gpu_program_parameters - cl-glfw's ext_gpu_program_parameters binding
+cl-glfw-opengl-ext_gpu_shader4 - cl-glfw's ext_gpu_shader4 binding
+cl-glfw-opengl-ext_histogram - cl-glfw's ext_histogram binding
+cl-glfw-opengl-ext_index_array_formats - cl-glfw's ext_index_array_formats binding
+cl-glfw-opengl-ext_index_func - cl-glfw's ext_index_func binding
+cl-glfw-opengl-ext_index_material - cl-glfw's ext_index_material binding
+cl-glfw-opengl-ext_light_texture - cl-glfw's ext_light_texture binding
+cl-glfw-opengl-ext_multi_draw_arrays - cl-glfw's ext_multi_draw_arrays binding
+cl-glfw-opengl-ext_multisample - cl-glfw's ext_multisample binding
+cl-glfw-opengl-ext_packed_depth_stencil - cl-glfw's ext_packed_depth_stencil binding
+cl-glfw-opengl-ext_packed_float - cl-glfw's ext_packed_float binding
+cl-glfw-opengl-ext_packed_pixels - cl-glfw's ext_packed_pixels binding
+cl-glfw-opengl-ext_paletted_texture - cl-glfw's ext_paletted_texture binding
+cl-glfw-opengl-ext_pixel_buffer_object - cl-glfw's ext_pixel_buffer_object binding
+cl-glfw-opengl-ext_pixel_transform - cl-glfw's ext_pixel_transform binding
+cl-glfw-opengl-ext_point_parameters - cl-glfw's ext_point_parameters binding
+cl-glfw-opengl-ext_polygon_offset - cl-glfw's ext_polygon_offset binding
+cl-glfw-opengl-ext_provoking_vertex - cl-glfw's ext_provoking_vertex binding
+cl-glfw-opengl-ext_secondary_color - cl-glfw's ext_secondary_color binding
+cl-glfw-opengl-ext_separate_shader_objects - cl-glfw's ext_separate_shader_objects binding
+cl-glfw-opengl-ext_separate_specular_color - cl-glfw's ext_separate_specular_color binding
+cl-glfw-opengl-ext_shader_image_load_store - cl-glfw's ext_shader_image_load_store binding
+cl-glfw-opengl-ext_stencil_clear_tag - cl-glfw's ext_stencil_clear_tag binding
+cl-glfw-opengl-ext_stencil_two_side - cl-glfw's ext_stencil_two_side binding
+cl-glfw-opengl-ext_stencil_wrap - cl-glfw's ext_stencil_wrap binding
+cl-glfw-opengl-ext_subtexture - cl-glfw's ext_subtexture binding
+cl-glfw-opengl-ext_texture3d - cl-glfw's ext_texture3d binding
+cl-glfw-opengl-ext_texture_array - cl-glfw's ext_texture_array binding
+cl-glfw-opengl-ext_texture_buffer_object - cl-glfw's ext_texture_buffer_object binding
+cl-glfw-opengl-ext_texture_compression_latc - cl-glfw's ext_texture_compression_latc binding
+cl-glfw-opengl-ext_texture_compression_rgtc - cl-glfw's ext_texture_compression_rgtc binding
+cl-glfw-opengl-ext_texture_compression_s3tc - cl-glfw's ext_texture_compression_s3tc binding
+cl-glfw-opengl-ext_texture_cube_map - cl-glfw's ext_texture_cube_map binding
+cl-glfw-opengl-ext_texture_env_combine - cl-glfw's ext_texture_env_combine binding
+cl-glfw-opengl-ext_texture_env_dot3 - cl-glfw's ext_texture_env_dot3 binding
+cl-glfw-opengl-ext_texture_filter_anisotropic - cl-glfw's ext_texture_filter_anisotropic binding
+cl-glfw-opengl-ext_texture_integer - cl-glfw's ext_texture_integer binding
+cl-glfw-opengl-ext_texture_lod_bias - cl-glfw's ext_texture_lod_bias binding
+cl-glfw-opengl-ext_texture_mirror_clamp - cl-glfw's ext_texture_mirror_clamp binding
+cl-glfw-opengl-ext_texture_object - cl-glfw's ext_texture_object binding
+cl-glfw-opengl-ext_texture_perturb_normal - cl-glfw's ext_texture_perturb_normal binding
+cl-glfw-opengl-ext_texture_shared_exponent - cl-glfw's ext_texture_shared_exponent binding
+cl-glfw-opengl-ext_texture_snorm - cl-glfw's ext_texture_snorm binding
+cl-glfw-opengl-ext_texture_srgb_decode - cl-glfw's ext_texture_srgb_decode binding
+cl-glfw-opengl-ext_texture_srgb - cl-glfw's ext_texture_srgb binding
+cl-glfw-opengl-ext_texture_swizzle - cl-glfw's ext_texture_swizzle binding
+cl-glfw-opengl-ext_texture - cl-glfw's ext_texture binding
+cl-glfw-opengl-ext_timer_query - cl-glfw's ext_timer_query binding
+cl-glfw-opengl-ext_transform_feedback - cl-glfw's ext_transform_feedback binding
+cl-glfw-opengl-ext_vertex_array_bgra - cl-glfw's ext_vertex_array_bgra binding
+cl-glfw-opengl-ext_vertex_array - cl-glfw's ext_vertex_array binding
+cl-glfw-opengl-ext_vertex_attrib_64bit - cl-glfw's ext_vertex_attrib_64bit binding
+cl-glfw-opengl-ext_vertex_shader - cl-glfw's ext_vertex_shader binding
+cl-glfw-opengl-ext_vertex_weighting - cl-glfw's ext_vertex_weighting binding
+cl-glfw-opengl-ext_x11_sync_object - cl-glfw's ext_x11_sync_object binding
+cl-glfw-opengl-gremedy_frame_terminator - cl-glfw's gremedy_frame_terminator binding
+cl-glfw-opengl-gremedy_string_marker - cl-glfw's gremedy_string_marker binding
+cl-glfw-opengl-hp_convolution_border_modes - cl-glfw's hp_convolution_border_modes binding
+cl-glfw-opengl-hp_image_transform - cl-glfw's hp_image_transform binding
+cl-glfw-opengl-hp_occlusion_test - cl-glfw's hp_occlusion_test binding
+cl-glfw-opengl-hp_texture_lighting - cl-glfw's hp_texture_lighting binding
+cl-glfw-opengl-ibm_cull_vertex - cl-glfw's ibm_cull_vertex binding
+cl-glfw-opengl-ibm_multimode_draw_arrays - cl-glfw's ibm_multimode_draw_arrays binding
+cl-glfw-opengl-ibm_rasterpos_clip - cl-glfw's ibm_rasterpos_clip binding
+cl-glfw-opengl-ibm_texture_mirrored_repeat - cl-glfw's ibm_texture_mirrored_repeat binding
+cl-glfw-opengl-ibm_vertex_array_lists - cl-glfw's ibm_vertex_array_lists binding
+cl-glfw-opengl-ingr_blend_func_separate - cl-glfw's ingr_blend_func_separate binding
+cl-glfw-opengl-ingr_color_clamp - cl-glfw's ingr_color_clamp binding
+cl-glfw-opengl-ingr_interlace_read - cl-glfw's ingr_interlace_read binding
+cl-glfw-opengl-intel_parallel_arrays - cl-glfw's intel_parallel_arrays binding
+cl-glfw-opengl-mesa_packed_depth_stencil - cl-glfw's mesa_packed_depth_stencil binding
+cl-glfw-opengl-mesa_pack_invert - cl-glfw's mesa_pack_invert binding
+cl-glfw-opengl-mesa_program_debug - cl-glfw's mesa_program_debug binding
+cl-glfw-opengl-mesa_resize_buffers - cl-glfw's mesa_resize_buffers binding
+cl-glfw-opengl-mesa_shader_debug - cl-glfw's mesa_shader_debug binding
+cl-glfw-opengl-mesa_trace - cl-glfw's mesa_trace binding
+cl-glfw-opengl-mesa_window_pos - cl-glfw's mesa_window_pos binding
+cl-glfw-opengl-mesax_texture_stack - cl-glfw's mesax_texture_stack binding
+cl-glfw-opengl-mesa_ycbcr_texture - cl-glfw's mesa_ycbcr_texture binding
+cl-glfw-opengl-nv_conditional_render - cl-glfw's nv_conditional_render binding
+cl-glfw-opengl-nv_copy_depth_to_color - cl-glfw's nv_copy_depth_to_color binding
+cl-glfw-opengl-nv_copy_image - cl-glfw's nv_copy_image binding
+cl-glfw-opengl-nv_depth_buffer_float - cl-glfw's nv_depth_buffer_float binding
+cl-glfw-opengl-nv_depth_clamp - cl-glfw's nv_depth_clamp binding
+cl-glfw-opengl-nv_evaluators - cl-glfw's nv_evaluators binding
+cl-glfw-opengl-nv_explicit_multisample - cl-glfw's nv_explicit_multisample binding
+cl-glfw-opengl-nv_fence - cl-glfw's nv_fence binding
+cl-glfw-opengl-nv_float_buffer - cl-glfw's nv_float_buffer binding
+cl-glfw-opengl-nv_fog_distance - cl-glfw's nv_fog_distance binding
+cl-glfw-opengl-nv_fragment_program2 - cl-glfw's nv_fragment_program2 binding
+cl-glfw-opengl-nv_fragment_program - cl-glfw's nv_fragment_program binding
+cl-glfw-opengl-nv_framebuffer_multisample_coverage - cl-glfw's nv_framebuffer_multisample_coverage binding
+cl-glfw-opengl-nv_geometry_program4 - cl-glfw's nv_geometry_program4 binding
+cl-glfw-opengl-nv_gpu_program4 - cl-glfw's nv_gpu_program4 binding
+cl-glfw-opengl-nv_gpu_program5 - cl-glfw's nv_gpu_program5 binding
+cl-glfw-opengl-nv_gpu_shader5 - cl-glfw's nv_gpu_shader5 binding
+cl-glfw-opengl-nv_half_float - cl-glfw's nv_half_float binding
+cl-glfw-opengl-nv_light_max_exponent - cl-glfw's nv_light_max_exponent binding
+cl-glfw-opengl-nv_multisample_coverage - cl-glfw's nv_multisample_coverage binding
+cl-glfw-opengl-nv_multisample_filter_hint - cl-glfw's nv_multisample_filter_hint binding
+cl-glfw-opengl-nv_occlusion_query - cl-glfw's nv_occlusion_query binding
+cl-glfw-opengl-nv_packed_depth_stencil - cl-glfw's nv_packed_depth_stencil binding
+cl-glfw-opengl-nv_parameter_buffer_object - cl-glfw's nv_parameter_buffer_object binding
+cl-glfw-opengl-nv_pixel_data_range - cl-glfw's nv_pixel_data_range binding
+cl-glfw-opengl-nv_point_sprite - cl-glfw's nv_point_sprite binding
+cl-glfw-opengl-nv_present_video - cl-glfw's nv_present_video binding
+cl-glfw-opengl-nv_primitive_restart - cl-glfw's nv_primitive_restart binding
+cl-glfw-opengl-nv_register_combiners2 - cl-glfw's nv_register_combiners2 binding
+cl-glfw-opengl-nv_register_combiners - cl-glfw's nv_register_combiners binding
+cl-glfw-opengl-nv_shader_buffer_load - cl-glfw's nv_shader_buffer_load binding
+cl-glfw-opengl-nv_shader_buffer_store - cl-glfw's nv_shader_buffer_store binding
+cl-glfw-opengl-nv_tessellation_program5 - cl-glfw's nv_tessellation_program5 binding
+cl-glfw-opengl-nv_texgen_emboss - cl-glfw's nv_texgen_emboss binding
+cl-glfw-opengl-nv_texgen_reflection - cl-glfw's nv_texgen_reflection binding
+cl-glfw-opengl-nv_texture_barrier - cl-glfw's nv_texture_barrier binding
+cl-glfw-opengl-nv_texture_env_combine4 - cl-glfw's nv_texture_env_combine4 binding
+cl-glfw-opengl-nv_texture_expand_normal - cl-glfw's nv_texture_expand_normal binding
+cl-glfw-opengl-nv_texture_multisample - cl-glfw's nv_texture_multisample binding
+cl-glfw-opengl-nv_texture_rectangle - cl-glfw's nv_texture_rectangle binding
+cl-glfw-opengl-nv_texture_shader2 - cl-glfw's nv_texture_shader2 binding
+cl-glfw-opengl-nv_texture_shader3 - cl-glfw's nv_texture_shader3 binding
+cl-glfw-opengl-nv_texture_shader - cl-glfw's nv_texture_shader binding
+cl-glfw-opengl-nv_transform_feedback2 - cl-glfw's nv_transform_feedback2 binding
+cl-glfw-opengl-nv_transform_feedback - cl-glfw's nv_transform_feedback binding
+cl-glfw-opengl-nv_vdpau_interop - cl-glfw's nv_vdpau_interop binding
+cl-glfw-opengl-nv_vertex_array_range2 - cl-glfw's nv_vertex_array_range2 binding
+cl-glfw-opengl-nv_vertex_array_range - cl-glfw's nv_vertex_array_range binding
+cl-glfw-opengl-nv_vertex_attrib_integer_64bit - cl-glfw's nv_vertex_attrib_integer_64bit binding
+cl-glfw-opengl-nv_vertex_buffer_unified_memory - cl-glfw's nv_vertex_buffer_unified_memory binding
+cl-glfw-opengl-nv_vertex_program2_option - cl-glfw's nv_vertex_program2_option binding
+cl-glfw-opengl-nv_vertex_program3 - cl-glfw's nv_vertex_program3 binding
+cl-glfw-opengl-nv_vertex_program4 - cl-glfw's nv_vertex_program4 binding
+cl-glfw-opengl-nv_vertex_program - cl-glfw's nv_vertex_program binding
+cl-glfw-opengl-nv_video_capture - cl-glfw's nv_video_capture binding
+cl-glfw-opengl-oes_read_format - cl-glfw's oes_read_format binding
+cl-glfw-opengl-oml_interlace - cl-glfw's oml_interlace binding
+cl-glfw-opengl-oml_resample - cl-glfw's oml_resample binding
+cl-glfw-opengl-oml_subsample - cl-glfw's oml_subsample binding
+cl-glfw-opengl-pgi_misc_hints - cl-glfw's pgi_misc_hints binding
+cl-glfw-opengl-pgi_vertex_hints - cl-glfw's pgi_vertex_hints binding
+cl-glfw-opengl-rend_screen_coordinates - cl-glfw's rend_screen_coordinates binding
+cl-glfw-opengl-s3_s3tc - cl-glfw's s3_s3tc binding
+cl-glfw-opengl-sgi_color_table - cl-glfw's sgi_color_table binding
+cl-glfw-opengl-sgi_depth_pass_instrument - cl-glfw's sgi_depth_pass_instrument binding
+cl-glfw-opengl-sgis_detail_texture - cl-glfw's sgis_detail_texture binding
+cl-glfw-opengl-sgis_fog_function - cl-glfw's sgis_fog_function binding
+cl-glfw-opengl-sgis_multisample - cl-glfw's sgis_multisample binding
+cl-glfw-opengl-sgis_pixel_texture - cl-glfw's sgis_pixel_texture binding
+cl-glfw-opengl-sgis_point_parameters - cl-glfw's sgis_point_parameters binding
+cl-glfw-opengl-sgis_sharpen_texture - cl-glfw's sgis_sharpen_texture binding
+cl-glfw-opengl-sgis_texture4d - cl-glfw's sgis_texture4d binding
+cl-glfw-opengl-sgis_texture_color_mask - cl-glfw's sgis_texture_color_mask binding
+cl-glfw-opengl-sgis_texture_filter4 - cl-glfw's sgis_texture_filter4 binding
+cl-glfw-opengl-sgis_texture_select - cl-glfw's sgis_texture_select binding
+cl-glfw-opengl-sgix_async - cl-glfw's sgix_async binding
+cl-glfw-opengl-sgix_depth_texture - cl-glfw's sgix_depth_texture binding
+cl-glfw-opengl-sgix_flush_raster - cl-glfw's sgix_flush_raster binding
+cl-glfw-opengl-sgix_fog_scale - cl-glfw's sgix_fog_scale binding
+cl-glfw-opengl-sgix_fragment_lighting - cl-glfw's sgix_fragment_lighting binding
+cl-glfw-opengl-sgix_framezoom - cl-glfw's sgix_framezoom binding
+cl-glfw-opengl-sgix_igloo_interface - cl-glfw's sgix_igloo_interface binding
+cl-glfw-opengl-sgix_instruments - cl-glfw's sgix_instruments binding
+cl-glfw-opengl-sgix_line_quality_hint - cl-glfw's sgix_line_quality_hint binding
+cl-glfw-opengl-sgix_list_priority - cl-glfw's sgix_list_priority binding
+cl-glfw-opengl-sgix_pixel_texture - cl-glfw's sgix_pixel_texture binding
+cl-glfw-opengl-sgix_polynomial_ffd - cl-glfw's sgix_polynomial_ffd binding
+cl-glfw-opengl-sgix_reference_plane - cl-glfw's sgix_reference_plane binding
+cl-glfw-opengl-sgix_resample - cl-glfw's sgix_resample binding
+cl-glfw-opengl-sgix_scalebias_hint - cl-glfw's sgix_scalebias_hint binding
+cl-glfw-opengl-sgix_shadow_ambient - cl-glfw's sgix_shadow_ambient binding
+cl-glfw-opengl-sgix_shadow - cl-glfw's sgix_shadow binding
+cl-glfw-opengl-sgix_slim - cl-glfw's sgix_slim binding
+cl-glfw-opengl-sgix_sprite - cl-glfw's sgix_sprite binding
+cl-glfw-opengl-sgix_tag_sample_buffer - cl-glfw's sgix_tag_sample_buffer binding
+cl-glfw-opengl-sgix_texture_coordinate_clamp - cl-glfw's sgix_texture_coordinate_clamp binding
+cl-glfw-opengl-sgix_texture_lod_bias - cl-glfw's sgix_texture_lod_bias binding
+cl-glfw-opengl-sgix_texture_multi_buffer - cl-glfw's sgix_texture_multi_buffer binding
+cl-glfw-opengl-sgix_ycrcba - cl-glfw's sgix_ycrcba binding
+cl-glfw-opengl-sun_convolution_border_modes - cl-glfw's sun_convolution_border_modes binding
+cl-glfw-opengl-sun_global_alpha - cl-glfw's sun_global_alpha binding
+cl-glfw-opengl-sun_mesh_array - cl-glfw's sun_mesh_array binding
+cl-glfw-opengl-sun_slice_accum - cl-glfw's sun_slice_accum binding
+cl-glfw-opengl-sun_triangle_list - cl-glfw's sun_triangle_list binding
+cl-glfw-opengl-sun_vertex - cl-glfw's sun_vertex binding
+cl-glfw-opengl-sunx_constant_data - cl-glfw's sunx_constant_data binding
+cl-glfw-opengl-version_1_0 - cl-glfw's version_1_0 binding
+cl-glfw-opengl-version_1_1 - cl-glfw's version_1_1 binding
+cl-glfw-opengl-version_1_2 - cl-glfw's version_1_2 binding
+cl-glfw-opengl-version_1_3 - cl-glfw's version_1_3 binding
+cl-glfw-opengl-version_1_4 - cl-glfw's version_1_4 binding
+cl-glfw-opengl-version_1_5 - cl-glfw's version_1_5 binding
+cl-glfw-opengl-version_2_0 - cl-glfw's version_2_0 binding
+cl-glfw-opengl-version_2_1 - cl-glfw's version_2_1 binding
+cl-glfw-opengl-version_3_0 - cl-glfw's version_3_0 binding
+cl-glfw-opengl-version_3_1 - cl-glfw's version_3_1 binding
+cl-glfw-opengl-version_3_2 - cl-glfw's version_3_2 binding
+cl-glfw-opengl-version_3_3 - cl-glfw's version_3_3 binding
+cl-glfw-opengl-version_4_0 - cl-glfw's version_4_0 binding
+cl-glfw-opengl-version_4_1 - cl-glfw's version_4_1 binding
+cl-glfw-opengl-win_phong_shading - cl-glfw's win_phong_shading binding
+cl-glfw-opengl-win_specular_fog - cl-glfw's win_specular_fog binding
+cl-glfw - Common Lisp bindings for GLFW
+cl-glfw-types - Common Lisp bindings for GLFW: Base CFFI type definitions and expanders package
+cl-glut-examples - Examples using cl-opengl, cl-glu and cl-glut.
+cl-glut - Common Lisp bindings to Freeglut.
+cl-glu - Common Lisp bindings to the GLU API v1.3
+cl-gpu.buffers - A helper library that provides a generalized buffer interface.
+cl-gpu.core - Core part of the GPU code translator.
+cl-gpu.cuda - CUDA integration for the GPU code translator.
+cl-gpu.test - Test suite for cl-gpu
+cl-gpu - A library for writing GPU kernels in a subset of CL
+cl-graph-test - Tests for CL-Graph
+cl-graph - Graph manipulation utilities for Common Lisp
+cl-heap-tests - Tests for the CL-HEAP package, an implementation of heap and priority queue data structures.
+cl-heap - An implementation of heap and priority queue data structures.
+cl-heredoc-test - cl-heredoc test package.
+cl-heredoc - Common Lisp reader heredoc dispatcher
+cl-hmm - Simple HMM library for Common Lisp
+cl-html-parse - HTML Parser
+cl-i18n - A gettext-style internationalisation framework for Common Lisp.
+cliki-bot - IRC bot for SBCL
+cl-inflector - Functions to pluralize and singularize english languages words
+cl-inotify - Inotify binding
+cli-parser - A command-line argument parser. Mostly parses options of the same form that getopt parses
+cl-irc - Common Lisp interface to the IRC protocol
+cl-irregsexp-test - Tests for cl-irregsexp
+cl-irregsexp - More powerful and prettier way of doing text matching, not using regular expressions
+cl-json - JSON in Lisp. JSON (JavaScript Object Notation) is a lightweight data-interchange format.
+cl-l10n-cldr - The necessary CLDR files for cl-l10n packaged in a QuickLisp friendly way.
+cl-l10n - Portable CL Locale Support
+cl-lastfm-test - Unit tests for cl-lastfm.
+cl-lastfm - Common Lisp wrapper for the Last.fm web service.
+cl-locale - Simple i18n library for Common Lisp
+cl-log - CL-LOG - a general purpose logging utility
+cl-m4-test - cl-m4 test package
+cl-m4 - Common Lisp re-implementation of GNU M4
+cl-mechanize - A WWW::Mechanize work-alike
+cl-mediawiki - A tool to help talk to mediawiki's api.
+cl-monad-macros - Monad Macros for Common Lisp.
+cl-moneris-test - Tests for the cl-moneris library.
+cl-moneris - An interface to the Moneris payment processing service (HTTP).
+cl-mongo - lisp system to interact with mongodb, a non-sql db
+cl-mpi - Common Lisp bindings for the Message Passing Interface (MPI)
+cl-muproc - A library for message-passing CL processes, inspired by the Erlang programming language.
+cl-murmurhash - 32-bit version of MurmurHash3.
+cl-mw - CL-MW: A Master/Slave Library
+cl-mysql - Common Lisp MySQL library bindings
+cl-num-utils - Numerical utilities for Common Lisp
+cl-oauth - Common Lisp OAuth implementation
+clonsigna - Simple IMAP4rev1 client library
+cl-openal-examples - Examples using cl-openal.
+cl-openal - CFFI bindings for OpenAL sound system.
+cl-openid - cl-openid
+clot - Cheap Lisp plOTting library
+cl-package-locks - A library to provide a unified way to work with package locks across supported common lisp implementations.
+cl-paths-ttf - cl-paths-ttf: vectorial paths manipulation
+cl-paths - cl-paths: vectorial paths manipulation
+cl-paypal - A paypal express checkout API in Common Lisp.
+cl-pdf-doc - Common Lisp PDF Generation Library Documentation
+cl-pdf-parser - PDF parser
+cl-pdf - Common Lisp PDF Generation Library
+cl-peg - PEG parser
+cl-photo - Lisp Markup Language
+cl-plplot - Interface to the PLplot Scientific Plotting Library
+clpmr - CLPMR a replacement for Procmail written in Common Lisp
+cl-postgres - Low-level client library for PosgreSQL
+cl-prevalence - Common Lisp Prevalence Package
+cl-project - Generate a skeleton for modern project
+clpython - CLPython - an implementation of Python in Common Lisp
+cl-randist - Random Distribution Generation
+cl-random - Random numbers and distributions.
+cl-rdfxml - The CL-RDFXML system provides functionality for processing RDF/XML serializations of RDF graphs. RDF/XML processes XML using Closure XML (CXML), and handles URIs using PURI.
+cl-recaptcha - Trivial support for the recaptcha service
+cl-redis - Redis database client, using iolib interface.
+cl-rfc2047 - Support for rfc-2047 de-/encoding
+cl-rmath - A Common Lisp wrapper for the Rmath library.
+cl-rsvg2-pixbuf - Using the RSVG Library with GdkPixbuf.
+cl-rsvg2-test - Eos tests for cl-rsvg2.
+cl-rsvg2 - Bindings for RSVG Library.
+cl-s3 - A Common Lisp Amazon S3 client interface package
+cl-sails - A lisp and parenscript implementation of Suave sails.
+cl-sasl - SASL library
+cl-scribd - Commong Lisp Client for the Scribd API.
+cl-scrobbler - A library for scrobbling to last.fm
+cl-skip-list - Concurrent lock-free skip list.
+cl-speedy-queue - cl-speedy-queue is a portable, non-consing, optimized queue implementation.
+clsql-cffi - CLSQL using CFFI-UFFI-COMPAT interface
+clsql-db2 - Common Lisp SQL Db2 Driver
+clsql-fluid - Common Lisp SQL Fluid Connection Pools
+clsql-mysql - Common Lisp SQL MySQL Driver
+clsql-odbc - Common Lisp SQL ODBC Driver
+clsql-oracle - Common Lisp SQL Oracle Driver
+clsql-postgresql-socket3 - Common Lisp SQL PostgreSQL Socket Driver
+clsql-postgresql-socket - Common Lisp SQL PostgreSQL Socket Driver
+clsql-postgresql - Common Lisp PostgreSQL API Driver
+clsql-sqlite3 - Common Lisp Sqlite3 Driver
+clsql-sqlite - Common Lisp SQLite Driver
+clsql-tests - A regression test suite for CLSQL.
+clsql - Common Lisp SQL Interface library
+clsql-uffi - Common UFFI Helper functions for Common Lisp SQL Interface Library
+cl-stm - Software Transactional Memory
+cl-stomp - Implements the STOMP protocol for connecting to a message broker.
+cl-store+functions-tests - Test system for cl-store+functions
+cl-store - Serialization package
+cl-string-complete - Simple string completion in Common Lisp.
+cls - Common Lisp Statistics (CLS): A System for Statistical Computing with Common Lisp; based on Common LispStat (CLS alpha1) by Luke Tierney <luke@stat.uiowa.edu> (apparently originally written when Luke was at CMU, on leave at Bell Labs?). Last touched by him in 1991, then by AJR starting in 2005.
+cl-svg - Produce Scalable Vector Graphics (SVG) files
+cl-swap-file-0.5 - Swap file is a fixed block size storage.
+cl-syslog - Common Lisp syslog interface
+cl-tidy - FFI bindings for HTML Tidy
+cl-tk - Minimal bridge to Tcl/Tk
+cl-tuples-test - Tests for cl-tuples
+cl-tuples - Experimental Tuple Types Facade
+cl-twit-repl - An interface to Twitter
+cl-twitter - An interface to Twitter
+cl-typegraph - Common Lisp Graph Typesetting
+cl-typesetting-test - Common Lisp Typesetting Tests
+cl-typesetting - Common Lisp Typesetting system
+cluck - Common Lisp uController Clock Calculator
+cl-uglify-js - JavaScript compressor/beautifier on top of PARSE-JS
+cl-v4l2 - Video4Linux2 bindings
+cl-vectors - cl-paths: vectorial paths manipulation
+cl-wal-0.4 - Write Ahead Log writes entries first to a journal and then to master stream.
+cl-webkit-demo - cl-webkit usage examples
+cl-webkit - A simple FFI for WebKitGtk+
+cl-win32ole-sys - Win32 OLE low level Interface
+cl-win32ole - Win32 OLE high level Interface
+clws - CLWS implement the WebSockets protocol as described by the latest specification draft[1]. Only a WebSockets server implementation is provided. [1] http://www.whatwg.org/specs/web-socket-protocol/ [2] http://tools.ietf.org/html/draft-hixie-thewebsocketprotocol-76 -- draft #76
+cl-xmlspam - Streaming pattern matching for XML
+cl-xmpp-sasl - Common Lisp XMPP client implementation with SASL support
+cl-xmpp-tls - Common Lisp XMPP client implementation with TLS+SASL support
+cl-xmpp - Common Lisp XMPP client implementation
+clx - An implementation of the X Window System protocol in Lisp.
+cl-yahoo-finance - CL interface to Yahoo's finance API
+cobstor - Cobol Storage library
+cocoahelper - cocoahelper system for SDL
+collectors - A library providing various collector type macros pulled from arnesi into its own library and stripped of dependencies
+colnew - F2CL conversion of COLNEW: Solution of boundary-value problems for ODEs
+com.dvlsoft.clon - The Command-Line Options Nuker.
+com.dvlsoft.declt - Documentation Extractor from Common Lisp to Texinfo.
+com.gigamonkeys.binary-data - Library for reading and writing binary data.
+com.gigamonkeys.foo - FOO Outputs Output
+com.gigamonkeys.macro-utilities - A few standard macro-writing macros. Deprecated. Use Alexandria instead.
+com.gigamonkeys.markup - Library for parsing Markup-formatted text.
+com.gigamonkeys.pathnames - Library to smooth over some implementation differences in treatment of pathnames.
+com.gigamonkeys.test-framework - Simple unit test framework for Common Lisp
+com.gigamonkeys.utilities - Peter Seibel's collection of 'utilities'.
+com.google.base - Universally useful Lisp code.
+com.google.flag - Unix command line flag parsing.
+com.informatimago.clext - This ASDF system gathers all the COM.INFORMATIMAGO.CLEXT packages.
+com.informatimago.clisp - This ASDF system gathers all the COM.INFORMATIMAGO.CLISP packages.
+com.informatimago.clmisc - This ASDF system gathers all the COM.INFORMATIMAGO.CLMISC packages.
+com.informatimago.common-lisp.arithmetic - This ASDF system gathers various Common Lisp library packages.
+com.informatimago.common-lisp.bank - This ASDF system gathers various Common Lisp library packages.
+com.informatimago.common-lisp.cesarum - This ASDF system gathers various Common Lisp library packages.
+com.informatimago.common-lisp.csv - This ASDF system gathers various Common Lisp library packages.
+com.informatimago.common-lisp.cxx - This ASDF system gathers various Common Lisp library packages.
+com.informatimago.common-lisp.data-encoding - This ASDF system gathers various Common Lisp library packages.
+com.informatimago.common-lisp.diagram - This ASDF system gathers various Common Lisp library packages.
+com.informatimago.common-lisp.ed - This ASDF system gathers various Common Lisp library packages.
+com.informatimago.common-lisp.graphviz - This ASDF system gathers various Common Lisp library packages.
+com.informatimago.common-lisp.heap - This ASDF system gathers various Common Lisp library packages.
+com.informatimago.common-lisp.html-base - This ASDF system gathers various Common Lisp library packages.
+com.informatimago.common-lisp.html-generator - This ASDF system gathers various Common Lisp library packages.
+com.informatimago.common-lisp.html-parser - This ASDF system gathers various Common Lisp library packages.
+com.informatimago.common-lisp.http - This ASDF system gathers various Common Lisp library packages.
+com.informatimago.common-lisp.interactive - This ASDF system gathers various Common Lisp library packages.
+com.informatimago.common-lisp.invoice - This ASDF system gathers various Common Lisp library packages.
+com.informatimago.common-lisp.lisp-reader - This ASDF system gathers various Common Lisp library packages.
+com.informatimago.common-lisp.lisp-sexp - This ASDF system gathers Common Lisp library packages to work with lisp forms and sexp, eg. in macros.
+com.informatimago.common-lisp.lisp-text - This ASDF system gathers various Common Lisp library packages.
+com.informatimago.common-lisp.lisp - This ASDF system gathers various Common Lisp library packages.
+com.informatimago.common-lisp.parser - This ASDF system gathers various Common Lisp library packages.
+com.informatimago.common-lisp.picture - This ASDF system gathers various Common Lisp library packages.
+com.informatimago.common-lisp.regexp - This ASDF system gathers various Common Lisp library packages.
+com.informatimago.common-lisp.rfc2822 - This ASDF system gathers various Common Lisp library packages.
+com.informatimago.common-lisp.rfc3548 - This ASDF system gathers various Common Lisp library packages.
+com.informatimago.common-lisp.tools.make-depends - This ASDF system gathers various Common Lisp library packages.
+com.informatimago.common-lisp - This ASDF system gathers various Common Lisp library packages.
+com.informatimago.common-lisp.unix - This ASDF system gathers packages to deal with UNIX configuration file.
+com.informatimago.rdp.basic.example - An example of parser generated in BASIC with the Recursive Descent Parser Generator.
+com.informatimago.rdp.basic - This package defines methods to generate the parsers in BASIC.
+com.informatimago.rdp.example - An example of parser generated with the Recursive Descent Parser Generator.
+com.informatimago.rdp - This package defines a Recursive Descent Parser generator. The client may define methods to generate the code of the parser in different languages than lisp.
+com.informatimago.sbcl - This ASDF system gathers all the COM.INFORMATIMAGO.SBCL packages.
+com.informatimago.susv3 - This ASDF system gathers all the COM.INFORMATIMAGO.SUSV3 packages.
+command-line-arguments - small library to deal with command-line arguments
+computable-reals - Computable real numbers.
+core-server - Core Server
+css-selectors - An implementation of css selectors
+csv-parser - CSV parsing/writing utilities, a la Microsoft Excel
+curly - Reader macros for easy function currying and composition.
+cxml-rpc - An XML-RPC interface for Common Lisp
+data-format-validation - Validation and conversion between user and internal data.
+data-table-clsql - A library providing a data-table class, and useful functionality around this
+data-table - A library providing a data-table class, and useful functionality around this
+date-calc - Package for simple date calculation
+dcm - A simple object prevalence system with strategies
+decimals-test - Decimal number parser and formatter - test functions
+decimals - Decimal number parser and formatter
+defcontract-doc - Documentation builder for defcontract
+defcontract - API guarantee enforcement
+defdoc - Structured document specifiers
+deflate - Deflate Decompression Library
+defsystem-compatibility-test - Tests for defsystem-compatibility!
+defsystem-compatibility - Make many defsystems look the same!
+docutils.extensions - Adds docutils parsing to markup handline
+docutils - Document utilities and Restructured text parser
+doplus - DO+ (doplus) is a high-level, extensible iteration construct for Common Lisp with a reasonably simple implementation, which in particular does not use a code walker.
+dso-util - David Owen's utilities.
+dynamic-classes-test - Tests for LIsp Framework for Testing
+ec2 - Common Lisp EC2 Package
+ele-acache - Allegro cache backend for elephant
+ele-bdb - Object database for Common Lisp
+ele-clp - Prevalence style database for Elephant based on CL-PREVALENCE
+ele-clsql - SQL-based Object respository for Common Lisp
+elephant-tests - Object database for Common Lisp
+elephant - Object database for Common Lisp
+ele-postgresql - PostgreSQL based Object respository for Common Lisp
+ele-postmodern - Elephant postmodern postgresql backend
+ele-prevalence - Prevalence style database for Elephant
+elf - Common Lisp library for manipulation of ELF files.
+employer-employee - weblocks-demo
+esrap - A Packrat / Parsing Grammar / TDPL parser for Common Lisp.
+evol-test - evol test package.
+evol - evol - entrenched virtues of lisp / love reversed. Multi-purpose build system.
+exscribe - Programmatically create HTML documents from a high-level syntax
+extensible-sequences - Extensible Sequences for CL
+f2cl - F2CL: Fortran to Lisp converter
+fare-csv - Robust CSV parser and printer
+fare-matcher - Lisp2-style Erlang/ML-like Extensible Pattern-Matcher for CL
+fare-mop - Utilities using the MOP; notably make informative pretty-printing trivial
+fare-utils - Basic functions and macros, interfaces, pure and stateful datastructures
+fcgi - FastCGI application-side protocol implementation
+ffa - Foreign friendly arrays
+fishpack - F2CL conversion of FISHPACK: Solution of separable elliptic PDEs
+flac-ffi - CFFI interface to libFLAC
+floating-point - Floating point functions.
+fomus - Lisp music notation formatter
+fsbv - Foreign Structures By Value.
+fset - A functional set-theoretic collections library. See: http://common-lisp.net/project/fset/ 
+ftp - FTP library
+f-underscore - a tiny library of functional programming utils placed into the public domain. the idea is to make functional programs shorter and easier to read without resorting to syntax [like arc's square bracket unary function syntax]
+gbbopen - The GBBopen blackboard-system framework
+gdk-cffi - Interface to GTK/GLib via CFFI
+genhash - Generic hashtable code
+geo - Geographic data structures and operations
+glaw - Game programming utilities
+g-lib-cffi - CFFI interface to some GLib primitives
+glop - Direct FFI bindings for OpenGL window and context management
+g-object-cffi - GObject,GType and GValue staff for gtk-cffi
+graylex-test - graylex test package
+graylex - Gray lexer input streams
+group-by - A Common Lisp library to help group data into trees (of various formats) based on common/shared values
+gsll - GNU Scientific Library for Lisp.
+gtfl - A Graphical Terminal For Lisp.
+gtk-cffi - Interface to GTK/Glib via CFFI
+gtk-cffi-utils - Different utils for gtk-cffi
+hompack - F2CL conversion of HOMPACK: Solution of non-linear systems of equations by homotopy methods.
+ht-ajax-test - Test files for HT-AJAX
+ht-ajax - AJAX for Hunchentoot
+html-encode - A library for encoding text in various web-savvy encodings.
+html-entities - A module for encoding and decoding HTML/XML/SGML entities.
+html-match - html-match - html pattern matcher
+html-sugar - HTML Helper Functions
+ht-simple-ajax - simple AJAX for Hunchentoot
+hu.dwim.asdf.documentation - Documentation for hu.dwim.asdf
+hu.dwim.asdf - Various ASDF extensions such as attached test and documentation system, explicit development support, etc.
+hu.dwim.common.documentation - Documentation for hu.dwim.common
+hu.dwim.common-lisp.documentation - Documentation for hu.dwim.common-lisp
+hu.dwim.common-lisp - A redefinition of the standard Common Lisp package that includes a number of renames and shadows.
+hu.dwim.common - An extended Common Lisp package to the general needs of other hu.dwim systems.
+hu.dwim.computed-class.documentation - Documentation for hu.dwim.computed-class
+hu.dwim.computed-class.test - Test for hu.dwim.computed-class
+hu.dwim.computed-class - Constraint based change propagation for class slots, lexical variables, function return values and reified cells.
+hu.dwim.defclass-star.documentation - Documentation for hu.dwim.defclass-star
+hu.dwim.defclass-star.test - Test for hu.dwim.defclass-star
+hu.dwim.defclass-star - Simplify class like definitions with defclass* and friends.
+hu.dwim.def.documentation - Documentation for hu.dwim.def
+hu.dwim.def.namespace - Thread safe namespace (global hashtable) definer.
+hu.dwim.def.test - Test for hu.dwim.def
+hu.dwim.def - General purpose, homogenous, extensible definer macro.
+hu.dwim.delico.documentation - Documentation for hu.dwim.delico
+hu.dwim.delico.test - Test for hu.dwim.delico
+hu.dwim.delico - Delimited, interpreted shift-reset continuation.
+hu.dwim.logger.documentation - Documentation for hu.dwim.logger
+hu.dwim.logger.test - Test for hu.dwim.logger
+hu.dwim.logger - Generic purpose logger utility.
+hu.dwim.partial-eval.documentation - Documentation for hu.dwim.partial-eval
+hu.dwim.partial-eval.test - Test for hu.dwim.partial-eval
+hu.dwim.partial-eval - Extensible partial evaluator.
+hu.dwim.perec.all.test - Test suite for all backends of hu.dwim.perec.
+hu.dwim.perec.all - All backends for hu.dwim.perec.
+hu.dwim.perec.documentation - Documentation for hu.dwim.perec
+hu.dwim.perec.oracle.test - Test suite for hu.dwim.perec with Oracle backend.
+hu.dwim.perec.oracle - Oracle backend for hu.dwim.perec.
+hu.dwim.perec.postgresql.test - Test suite for hu.dwim.perec with Postgresql backend.
+hu.dwim.perec.postgresql - Postgresql backend for hu.dwim.perec.
+hu.dwim.perec.sqlite.test - Test suite for hu.dwim.perec with Sqlite backend.
+hu.dwim.perec.sqlite - Sqlite backend for hu.dwim.perec.
+hu.dwim.perec.test - Test suite for hu.dwim.perec
+hu.dwim.perec - RDBMS based persistent CLOS, an object relational mapping (ORM).
+hu.dwim.presentation.documentation - Documentation for hu.dwim.presentation
+hu.dwim.presentation.test - Test for hu.dwim.presentation
+hu.dwim.presentation - A component based GUI framework with a backend to present it using HTML and JavaScript.
+hu.dwim.quasi-quote.css - Quasi quote transformations for emitting CSS.
+hu.dwim.quasi-quote.documentation - Documentation for hu.dwim.quasi-quote
+hu.dwim.quasi-quote.js - Quasi quote transformations for emitting JavaScript.
+hu.dwim.quasi-quote.pdf - Quasi quote transformations for emitting PDF.
+hu.dwim.quasi-quote.test - Test for hu.dwim.quasi-quote
+hu.dwim.quasi-quote - Quasi quoted domain specific languages and transformations.
+hu.dwim.quasi-quote.xml - Quasi quote transformations for emitting XML.
+hu.dwim.rdbms.all.test - Test for hu.dwim.rdbms.all
+hu.dwim.rdbms.all - All backends for hu.dwim.rdbms.
+hu.dwim.rdbms.documentation - Documentation for hu.dwim.rdbms
+hu.dwim.rdbms.oracle.test - Test for hu.dwim.rdbms.oracle
+hu.dwim.rdbms.oracle - Oracle backend for hu.dwim.rdbms.
+hu.dwim.rdbms.postgresql.test - Test for hu.dwim.rdbms.postgresql
+hu.dwim.rdbms.postgresql - Postgresql backend for hu.dwim.rdbms.
+hu.dwim.rdbms.sqlite.test - Test for hu.dwim.rdbms.sqlite
+hu.dwim.rdbms.sqlite - Sqlite backend for hu.dwim.rdbms.
+hu.dwim.rdbms - Relational database independent RDBMS and SQL abstractions.
+hu.dwim.reiterate.documentation - Documentation for hu.dwim.reiterate
+hu.dwim.reiterate+hu.dwim.logger - Loads hu.dwim.logger first, so that proper logging is available when developing, but not making the extra dependency mandatory.
+hu.dwim.reiterate.test - Test for hu.dwim.reiterate
+hu.dwim.reiterate - Iterator macro inspired by iterate.
+hu.dwim.serializer.documentation - Documentation for hu.dwim.serializer
+hu.dwim.serializer.test - Test for hu.dwim.serializer
+hu.dwim.serializer - Generic serializer and deserializer.
+hu.dwim.stefil.documentation - Documentation for hu.dwim.stefil
+hu.dwim.stefil.test - Test for hu.dwim.stefil
+hu.dwim.stefil - A Simple Test Framework In Lisp.
+hu.dwim.syntax-sugar.documentation - Documentation for hu.dwim.syntax-sugar
+hu.dwim.syntax-sugar.test - Test for hu.dwim.syntax-sugar
+hu.dwim.syntax-sugar - Various syntax extensions.
+hu.dwim.syntax-sugar.unicode - Various unicode syntax extensions.
+hu.dwim.util.authorization - Authorization for lisp forms.
+hu.dwim.util.documentation - Documentation for hu.dwim.util
+hu.dwim.util.error-handling - Various utilities, contains code for complex error handling.
+hu.dwim.util.flexml - A CXML document model that can parse into CLOS nodes
+hu.dwim.util+iolib - Integration of hu.dwim.util with iolib.
+hu.dwim.util.production - Various utilities, contains code for producing standalone executable services.
+hu.dwim.util.soap - SOAP messages over HTTP.
+hu.dwim.util.source - Provides a source forms for definitions.
+hu.dwim.util.standard-process - Provides a worker group abstraction to do a bunch of shared tasks.
+hu.dwim.util.test - Test for hu.dwim.util
+hu.dwim.util.threads - Various utilities used by the dwim.hu team. Threading related utilities for a bit more dependency.
+hu.dwim.util - Various utilities, this is the most basic system that only introduce a small number of external dependencies.
+hu.dwim.util.worker-group - Provides a worker group abstraction to do a bunch of shared tasks.
+hu.dwim.util.zlib - Bindings and lisp API for zlib.
+hu.dwim.walker.documentation - Documentation for hu.dwim.walker
+hu.dwim.walker.test - Test for hu.dwim.walker
+hu.dwim.walker - Common Lisp form walker and unwalker (to and from CLOS instances).
+hu.dwim.web-server.application.test - Test for hu.dwim.web-server.application
+hu.dwim.web-server.application - Application logic (sessions, etc) based on hu.dwim.web-server.
+hu.dwim.web-server.documentation - Documentation for hu.dwim.web-server
+hu.dwim.web-server.test - Test for hu.dwim.web-server
+hu.dwim.web-server - An iolib based HTTP server.
+hunchentoot - Hunchentoot is a HTTP server based on USOCKET and BORDEAUX-THREADS. It supports HTTP 1.1, serves static files, has a simple framework for user-defined handlers and can be extended through subclassing.
+hyperspec-lookup - Hyperspec URL lookup library.
+idna - IDNA (international domain names) string encoding routines
+ie3fp - IEEE 754 en/de-coder
+incf-cl - INCF CL is a library of convenience functions for Common Lisp
+iolib.base - Base IOlib package, used instead of CL.
+iolib.multiplex - I/O multiplexing library.
+iolib.os - OS interface.
+iolib.pathnames - New pathnames.
+iolib.sockets - Socket library.
+iolib.streams - Gray streams.
+iolib.syscalls - Syscalls and foreign types.
+iolib-tests - IOLib test suite.
+iolib.trivial-sockets - Trivial-Sockets compatibility layer.
+iolib - I/O library.
+ironclad - A cryptographic toolkit written in pure Common Lisp
+iterate - Jonathan Amsterdam's iterator/gatherer/accumulator facility
+jpl-queues - A few different kinds of queues, with optional multithreading synchronization.
+jpl-util - Sundry utilities for J.P. Larocque.
+json-template - An implementation of a subset of the JSON Template language.
+jsown-tests - Tests for the jsoown library
+jsown - Fast JSON parsing library. Mainly geared torwards fetching only a few keys of many objects, but efficient for other types of content too
+km - THE KNOWLEDGE MACHINE - INFERENCE ENGINE
+lambda-reader - Use unicode character λ for LAMBDA in reader and printer
+langutils - Language utilities
+lapack - LAPACK - Linear Algebra PACKage for double-float matrices
+latex-table - Pretty latex tables from Lisp matrices and vectors.
+leech - leech - parallel HTTP downloader
+let-plus - Destructuring extension of LET*.
+lhstats - Statistical functions by Larry Hunter and Jeff Shrager.
+lift-documentation - Documentation for LIFT
+lift-test - Tests for LIsp Framework for Testing
+lift - LIsp Framework for Testing
+linedit - Readline-style library.
+lisa - The Lisa expert system shell
+lispbuilder-cal3d-examples - Examples for the lispbuilder-cal3d package.
+lispbuilder-cal3d - lispbuilder-cal3d: Cal3D library wrapper and tools
+lispbuilder-clawk - The Unix AWK language, albeit with a pretty lisp-y flavor
+lispbuilder-lexer - A lexical-analyzer-generator called DEFLEXER, which is built on top of both REGEX and CLAWK
+lispbuilder-net-cffi - lispbuilder-net-cffi: Basic Lisp wrapper for the net library.
+lispbuilder-net-examples - Examples for the lispbuilder-net package.
+lispbuilder-net - lispbuilder-net: asynchronous sockets library
+lispbuilder-opengl-1-1 - lispbuilder-opengl: gl Mesa v6.4.2 library wrapper and tools
+lispbuilder-opengl-1-2 - lispbuilder-opengl: gl Mesa v6.4.2 library wrapper and tools
+lispbuilder-opengl-1-3 - lispbuilder-opengl: gl Mesa v6.4.2 library wrapper and tools
+lispbuilder-opengl-examples - Examples for the lispbuilder-opengl package.
+lispbuilder-opengl-ext - lispbuilder-opengl: gl Mesa v6.4.2 library wrapper and tools
+lispbuilder-openrm-binaries - lispbuilder-openrm-binaries: The windows binary for the OPENRM v1.8.0 library
+lispbuilder-openrm-examples - Examples for the lispbuilder-openrm package.
+lispbuilder-openrm-native-examples - Examples for the lispbuilder-openrm-native package.
+lispbuilder-openrm-native - lispbuilder-openrm-window: Native OS support
+lispbuilder-openrm-sdl-examples - Examples for the lispbuilder-openrm-sdl package.
+lispbuilder-openrm-sdl - lispbuilder-openrm-sdl: SDL support
+lispbuilder-openrm - lispbuilder-openrm: OpenRM library wrapper and tools
+lispbuilder-regex - A pretty full-featured matcher
+lispbuilder-sdl-assets - lispbuilder-sdl-assets: Assets
+lispbuilder-sdl-base - lispbuilder-sdl-base: SDL library wrapper providing a base set of functionality.
+lispbuilder-sdl-binaries - lispbuilder-sdl-binaries: The windows binary for the SDL v1.2.14 library
+lispbuilder-sdl-cffi - lispbuilder-sdl-cffi: Basic Lisp wrapper for the SDL library.
+lispbuilder-sdl-cl-vectors-examples - Examples for the LISPBUILDER-SDL-CL-VECTORS package.
+lispbuilder-sdl-cl-vectors - CL-VECTORS v0.1.3 glue for LISPBUILDER-SDL
+lispbuilder-sdl-examples - Examples for the lispbuilder-sdl package.
+lispbuilder-sdl-gfx-binaries - lispbuilder-sdl-gfx-binaries: The windows binary for the SDL_gfx v2.0.13 library
+lispbuilder-sdl-gfx-cffi - lispbuilder-sdl-gfx-cffi: SDL_gfx v2.0.13 library wrapper and tools
+lispbuilder-sdl-gfx-examples - Examples describing the use of lispbuilder-sdl-gfx.
+lispbuilder-sdl-gfx - lispbuilder-sdl-gfx: SDL_gfx v2.0.16 library wrapper and tools
+lispbuilder-sdl-image-binaries - lispbuilder-sdl-image-binaries: The windows binary for the SDL_image v1.2.10 library
+lispbuilder-sdl-image-cffi - lispbuilder-sdl-image-cffi: SDL_image 1.2.10 library wrapper and tools
+lispbuilder-sdl-image-examples - Examples describing the use of lispbuilder-sdl-image.
+lispbuilder-sdl-image - lispbuilder-sdl-image: SDL_image 1.2.10 library wrapper and tools
+lispbuilder-sdl-mixer-binaries - lispbuilder-sdl-mixer-binaries: The Win32 binary for the SDL_mixer v1.2.11 library
+lispbuilder-sdl-mixer-cffi - lispbuilder-sdl-mixer-cffi: SDL_mixer 1.2.11 library wrapper and tools
+lispbuilder-sdl-mixer-examples - Examples for the lispbuilder-sdl-mixer package.
+lispbuilder-sdl-mixer - lispbuilder-sdl-mixer: SDL_mixer v1.2.11 library wrapper and tools
+lispbuilder-sdl-ttf-binaries - lispbuilder-sdl-ttf-binaries: The windows binary for the SDL_ttf v2.0.9 library
+lispbuilder-sdl-ttf-cffi - lispbuilder-sdl-ttf: SDL_ttf 2.0.9 library wrapper and tools
+lispbuilder-sdl-ttf-examples - Examples describing the use of lispbuilder-sdl-ttf.
+lispbuilder-sdl-ttf - lispbuilder-sdl-ttf: SDL_ttf 2.0.9 library wrapper and tools
+lispbuilder-sdl - lispbuilder-sdl: Wrapper and tools for SDL 1.2.14
+lispbuilder-sdl-vecto-examples - Examples for the LISPBUILDER-SDL-VECTO package.
+lispbuilder-sdl-vecto - VECTO v1.0.2 glue for LISPBUILDER-SDL
+lispbuilder-windows - lispbuilder-windows: Windows library wrapper and tools
+lispbuilder-yacc - A LALR(1) parser generator for Common Lisp
+lisp-magick - ImageMagick binding
+lisp-unit - Common Lisp library that supports unit testing.
+little-endian - Binary file little endian format provides interface to read and write binary files.
+lkcas - Simple demo of Blackthorn 3D Engine.
+lla - Lisp Linear Algebra
+llvm - CFFI bindings to the LLVM libraries.
+l-math - A simple math library focused on linear algebra.
+lml2 - Lisp Markup Language
+lml - Lisp Markup Language
+local-time.test - Testing code for the local-time library
+local-time - A library for manipulating dates and times, based on a paper by Erik Naggum
+log5-test - Log5 is a Common Lisp logging library
+log5 - Log5 is a Common Lisp logging library
+logv - simple logging for cl-terrace
+lparallel - Parallelism for Common Lisp
+lredis - Lisp Redis bindings
+ltk-mw - Ltk Mega-Widgets
+ltk-remote - LTK remote
+ltk - LTK
+m2cl-examples - Examples for the m2cl mongrel2 handler.
+m2cl-test - Tests for the m2cl mongrel2 handler.
+m2cl - A handler for the mongrel2 HTTP server.
+magicffi - cffi interface to libmagic(3)
+manager - core template application
+manifest - A system for semi-automatically documenting Common Lisp packages.
+marshal - marshal: Simple (de)serialization of Lisp datastructures.
+mcclim-gif-bitmaps - Support for GIF images in McCLIM bitmap reading functions.
+mcclim-jpeg-bitmaps - Support for JPEG images in McCLIM bitmap reading functions.
+mcclim-png-bitmaps - Support for PNG images in McCLIM bitmap reading functions.
+mcclim-tiff-bitmaps - Support for TIFF images in McCLIM bitmap reading functions.
+md5 - MD5 Message Digest function
+metabang-bind-test - Tests for metabang-bind
+metabang-bind - Bind is a macro that generalizes multiple-value-bind, let, let*, destructuring-bind, structure and slot accessors, and a whole lot more.
+metacopy - Flexible Common Lisp shallow/deep copy mechanism.
+metafs - Meta-Data File System
+metafunk - An ACID-compliant, persistent, and eventually distributed heap.
+metatilities-base - These are metabang.com's Common Lisp basic utilities.
+metatilities-test - Tests for metatilities
+metatilities - These are the rest of metabang.com's Common Lisp utilities
+meta - META syntax to easily write parsers
+method-versions - method-versions: package for creating versioned methods
+midi - A library for MIDI and Midifiles.
+mime4cl - MIME primitives for Common Lisp
+minpack - F2CL conversion of MINPACK: Solutions to non-linear equations and least-squares problems
+mixalot-flac - FLAC Streamer class for Mixalot
+mixalot-mp3 - MP3 Streamer class for Mixalot
+mixalot - Mixalot mixer for ALSA
+mixalot-vorbis - Vorbis Streamer class for Mixalot
+modf - This library simplifies functional programming by making it easier to make new data structures with specified changes in place.
+monkeylib-bcrypt - Wrapper around bcrypt C library for hashing passwords.
+monkeylib-html - HTML generation
+monkeylib-markup-html - Library for generating HTML from Markup formatted text.
+monkeylib-markup-xml - Library for generating XML from Markup-formatted text.
+monkeylib-text-languages - Compiler for text-based languages.
+monkeylib-text-output - Formatted text output.
+montezuma-indexfiles - montezuma-indexfiles
+montezuma - Montezuma is a port of the Lucene text search engine library.
+moptilities-test - Test for Common Lisp MOP utilities
+moptilities - Common Lisp MOP utilities
+mpg123-ffi - CFFI interface to libmpg123
+mt19937 - Portable MT19937 Mersenne Twister random number generator
+mtlisp - MT's Common Lisp utilities.
+mw-equiv - Extensible object equivalence protocol
+named-readtables - Library that creates a namespace for named readtable akin to the namespace of packages.
+nekthuth - Connection with a Lisp
+net4cl - NET4CL a Common Lisp library to handle e-mail
+nibbles - A library for accessing octet-addressed blocks of data
+npg - NPG a Naive Parser Generator
+nst-doc - Documentation builder for NST
+nst - The NST unit/regression testing system
+oct - A portable implementation of quad-double arithmetic. See <http://www.common-lisp.net/project/oct>.
+ods4cl - Open Document Spreadsheet library
+opticl - A library for representing and processing images
+osc - The Open Sound Control protocol, aka OSC
+pack - Pack and unpack binary data via Python-like struct strings.
+pal - Pixel Art Library
+paren-events - ParenScript Object System - A CLOS-like object system for ParenScript.
+paren-files - Parenscript library for compiling files and ASDF systems.
+paren-psos - ParenScript Object System - A CLOS-like object system for ParenScript.
+parenscript-classic - js - javascript compiler
+paren-util - Basic Parenscript functions for AJAX.
+par-eval - simple work farming framework for CL-MPI
+parse-declarations-1.0 - Library to parse and rebuild declarations.
+parse-js - JavaScript parser
+parser-combinators-cl-ppcre - An implementation of parser combinators for Common Lisp
+parser-combinators-tests - Test for parser combinator library
+parser-combinators - An implementation of parser combinators for Common Lisp
+patron - A compact thread pool implementation.
+perfpiece - CL:TIME on steroids.
+philip-jose - Manage a farm of workers to execute distributed jobs
+pileup - A portable, performant, and thread-safe binary heap / priority queue.
+place-utils - Provides a few utilities relating to setfable places.
+plokami - Common Lisp PCAP interface.
+png-read - A library for reading PNG files.
+png - Read and write PNG (Portable Network Graphics) files.
+postmodern - PosgreSQL programming API
+postoffice - Franz's Post Office Package
+proc - Bindings for libproc-dev
+protobuf-example - Protocol buffer example code
+protobuf-test - Protocol buffer test code
+protobuf - Protocol buffer code
+psgraph - PostScript DAG Grapher.
+ptester - Portable test harness package
+pubmed - Library for querying the PubMed medical literature database
+puri - Portable Universal Resource Indentifier Library
+py-configparser-tests - Tests for 'Common Lisp implementation of the Python ConfigParser module'
+py-configparser - Common Lisp implementation of the Python ConfigParser module
+py-configvalidator - A validation layer for py-configparser
+qooxlisp - qooxlisp
+quadpack - F2CL conversion of QUADPACK: Adaptive numerical integration
+queues.priority-cqueue - A thread safe fibonacci priority queue
+queues.priority-queue - A priority queue (fibonacci) implementation
+queues.simple-cqueue - A thread safe queue
+queues.simple-queue - A simple queue implementation
+quickproject - Creates the skeleton of a new Common Lisp project
+rcl - http://common-lisp.net/project/rcl
+recursive-regex - Recursive regular expression parsing engine
+regex - A Regular Expression Engine
+registry-test - registry testing
+registry - A general medical registry platform for patients and clinicians
+rfc3339-timestamp - A Common Lisp implementation of timestamps as defined by RFC3339
+rjson - Red's Javascript Object Notation encoder for common lisp. Part of the Suave project.
+rpc4cl-test - Implementation of a test suite server with the additional dependency on hunchentoot
+rpc4cl - A Common Lisp implementation of XML-RPC using best of breed libraries
+rss - Remote Site Summary
+rt - MIT Regression Tester
+rutils - A reasonable collection of basic utilities for syntactic extension and basic data-structures hadling, developed over the years of CL history by efforts of different individuals, and gathered under the unbrella of a hierarchy of packages, which can be used selectively on demand.
+salza2 - Create compressed data in the ZLIB, DEFLATE, or GZIP data formats
+sane - Lispy library bindings for sane.
+s-base64 - Common Lisp Base64 Package
+sb-cga - Computer graphic algebra for SBCL.
+sb-fastcgi - FastCGI wrapper for SBCL
+sb-vector-io - Raw vector IO for SBCL.
+schedule - Schedule for SlavSoft
+sclf - Stray Common Lisp Functions
+screamer - Nondeterministic programming and constraint propagation.
+scribble - Syntax extensions akin to Racket's Scribble and Bigloo's Skribe
+s-dot - Render Graphviz graphs from within Lisp
+sequence-iterators - DOSEQUENCE & Co.
+series - See <http://series.sourceforge.net/>.
+sheeple - Cheeky prototypes for Common Lisp
+s-http-client - A Basic HTTP Client
+s-http-server - S-HTTP-SERVER is a minial standalone Common Lisp HTTP Server
+shuffletron - An MP3 player
+simple-blog - simple blog
+simple-finalizer - A simple Common Lisp finalizer for foreign objects when using CFFI and TRIVIAL-GARBAGE.
+simpsamp - Fast algorithms for simple random sampling from sets, without replacement.
+skippy - Read and write GIF files
+smtp4cl - SMTP4CL an SMTP library for Common Lisp
+snmp-server - SNMP Server
+snmp-test - SNMP Package Test
+snmp - Simple Network Management Protocol
+snmp-ui - SNMP GUI Utility for LispWorks
+spartns - SPARse TeNSor representation library
+s-protobuf - Protocol Buffer compiler and runtime
+s-sysdeps - An abstraction layer over platform dependent functionality
+static-vectors - Create vectors allocated in static memory.
+stdutils - Standard Utilities
+stefil - Stefil - Simple Test Framework In Lisp
+st-json - JSON in- and output
+storable-functions-tests - Test system for Storable Functions.
+storable-functions - Implements a way to transform functions from and to CLOS instances of some specific classes. It contains a set of macros for making this transformation possible, and tools for actually doing the transformation. The goal is to provide a simple, portable way to serialize functions. Portable in the sense that it should work across multiple Common Lisp implementations. Simple in the sense that supporting the serialization of all functions defined using this library should be just a matter of defining / redefining one or two methods of the serialization protocol. The only restriction to make functions serializable is to use a set of macros to create closure and function information.
+stumpwm - A tiling, keyboard driven window manager
+s-utils - S-UTILS is collection of Common Lisp utilities
+sw-http - SW-HTTP - an EPOLL based server for Common Lisp
+sw-mvc -  This was originally intended to be a Model View Controller (MVC) framework, but has turned into a dataflow thing.
+sw-stm - Memory transactions for Common Lisp.
+s-xml-rpc - Common Lisp XML-RPC Package
+s-xml - Simple Common Lisp XML Parser
+symbol-munger - Functions to convert between the spacing and capitalization conventions of various environments
+talcl - TAL in CL
+teepeedee2-test - Tests for teepeedee2
+teepeedee2 - Multiprotocol fast networking framework
+testbild-test - testbild test package
+testbild - Universal test output production and consumption facility
+text-query - A general text-based system for querying the user.
+thnappy - Common Lisp bindings to Google's Snappy compression library.
+thopter - Thopter, a shooter game.
+thread.comm.rendezvous - Rendezvous thread synchronization
+tinaa-test - Test for tinaa
+toms419 - F2CL conversion of TOMS 419: Zeroes of a complex polynomial
+toms715 - F2CL conversion of TOMS 715: Numerical Evaluation of Special Functions
+toms717 - F2CL conversion of TOMS 717: Max- and quasi-likelihood estimation in non-linear regression
+toot - A minimal web server originally built by stripping down Edi Weitz's Hunchentoot
+tpapp-utils - Miscellaneous utility functions/macros I use frequently
+trees - A library for binary trees in normal and balanced flavors
+trivial-backtrace - trivial-backtrace
+trivial-bit-streams - Trivial bit streams
+trivial-features-tests - Unit tests for TRIVIAL-FEATURES.
+trivial-features - Ensures consistent *FEATURES* across multiple CLs.
+trivial-garbage - Portable finalizers, weak hash-tables and weak pointers.
+trivial-http-test - Tests for trivial-http
+trivial-http - Simple support for HTTP GET, POST and more.
+trivial-shell-test - Tests for trivial-shell
+trivial-shell - OS and Implementation independent access to the shell
+trivial-timeout-test - Tests for trivial-timeout
+trivial-timeout - OS and Implementation independent access to timeouts
+trivial-timers - Trivial timer library
+trivial-types - Trivial type definitions
+twitter-elephant-driver - An elephant db driver for cl-twitter
+twitter-mongodb-driver - A mongodb driver for cl-twitter
+ucw-core - Core features of UnCommon Web
+ucw - UncommonWeb : Standard Components
+uffi - Universal Foreign Function Library for Common Lisp
+unicly - UUID Generation per RFC 4122
+unit-formulas - Formulas with unit checking and conversion
+unit-test - unit-testing framework for common lisp
+until-it-dies.base - Until It Dies -- A 2D Game Engine.
+until-it-dies.examples - Examples for Until It Dies -- A 2D Game Engine
+until-it-dies.graphics - Until It Dies -- Fancy graphics module.
+until-it-dies.sound - Until It Dies -- Sound module.
+until-it-dies - Until It Dies -- A 2D Game Engine.
+uri-template - An implementation of the URI Template proposed standard draft version 01.
+userial-tests - tests for userial serialization library
+userial - userial: a serialization library for binary message encoding.
+usocket-test - Tests for usocket
+usocket - Universal socket library for Common Lisp
+usocket-udp - UDP support for the USOCKET project
+utils-kt - Kenny's Utilities
+uuid - UUID Generation
+vas-string-metrics - Jaro-Winkler and Levenshtein string distance algorithms.
+vecto - Create vector graphics in PNG files.
+vivace-graph-client - Vivace Graph Binary Protocol Client
+vivace-graph - Vivace Graph
+vorbisfile-ffi - CFFI interface to libvorbisfile
+webfunk - An ACID-compliant, persistent, and eventually distributed heap.
+weblocks-clsql-demo - weblocks-clsql-demo
+weblocks-clsql - A weblocks backend for clsql.
+weblocks-demo-popover - weblocks-demo
+weblocks-demo - weblocks-demo
+weblocks-elephant-demo - weblocks-elephant-demo
+weblocks-elephant - A weblocks backend for elephant.
+weblocks-memory - A weblocks backend for memory (not backed on disk).
+weblocks-postmodern - A weblocks backend for PostgreSQL using postmodern.
+weblocks-prevalence - A weblocks backend for cl-prevalence.
+weblocks-s11 - Stephen Compall's extensions to Weblocks.
+weblocks-scripts - A set of scripts for weblocks framework.
+weblocks-store-test - A test suite for weblocks backend stores.
+weblocks-test - A test harness for weblocks framework.
+weblocks - A Common Lisp web framework.
+weblocks-yarek - Yarek Kowalik's extensions to Weblocks.
+weblocks-yui - YUI integration for weblocks
+webthiteth - Javascript and html generation library.
+whistle - A more full-featured web server built on top of Toot.
+wilbur - WILBUR2: Nokia's Semantic Web Toolkit for CLOS
+wkb - Simple GIS data types with Well-Known Binary encoding and decoding.
+wu-decimal - Arbitrary-precision decimal arithmetic
+wuwei - Tools for developing Ajaxy web applications
+xcvb-bootstrap - Bootstrapping an XCVB binary from ASDF
+xcvb-bridge - XCVB bridge for ASDF
+xcvb-driver-test - Tests for XCVB-Driver
+xcvb-driver - XCVB Driver
+xcvb-test - Tests for XCVB
+xcvb - XCVB
+xlunit - Extreme Lisp Testing Suite
+xml-mop - xml-mop allows representing parts of XML documents as CLOS objects
+xml-render - none
+xmlutils - Franz's Test Harness Package
+xptest - Extreme Programming Testing Suite
+yacc - A LALR(1) parser generator for Common Lisp
+yason - JSON parser/encoder
+zcdb - Read and write cdb files, as specified in http://cr.yp.to/cdb.html
+zeromq - Zero MQ 2 bindings
+zmq-examples - Examples for the zmq binding.
+zmq-test - Tests for the zmq binding.
+zmq - A binding of the zmq transport layer.
+zpb-exif - Read EXIF data from image files
+zpb-ttf - Access TrueType font metrics and outlines from Common Lisp
+zpng - Create PNG files
+zs3 - A Common Lisp library for working with Amazon's Simple Storage Service (S3) and CloudFront content delivery service.
+учёт - Учётная система на основе cl-sql и gtk-cffi

@@ -27,7 +27,7 @@ td.symbol {
 td.docs {
 }
 
-ul {
+ul.packages {
     padding: 0;
     margin: 0;
     -moz-column-count: 4;
@@ -36,6 +36,12 @@ ul {
 
 }
 
+th { text-align: left; }
+
 .symbol, .package {
     text-transform: lowercase;
+}
+
+tr.not-documented>td.docs {
+    color: gray;
 }

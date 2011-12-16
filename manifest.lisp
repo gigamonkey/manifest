@@ -37,20 +37,25 @@ a true Common Lisp while still working in Allegro's mlisp."
 (defun make-handler (&optional (root-dir (asdf:system-relative-pathname :manifest nil)))
   (let ((static-files (make-instance 'static-file-handler :root root-dir)))
     (lambda (request)
-      (let ((result (manifest request)))
-        (case result
-          (not-handled (handle-request static-files request))
-          (t result))))))
+      (let ((*default-pathname-defaults* root-dir))
+        (let ((result (manifest request)))
+          (case result
+            (not-handled (handle-request static-files request))
+            (t result)))))))
 
 (defun manifest (request)
   (cond
     ((string= (request-path request) "/") (index-page request))
-    (t (package-page request))))
+    ((string= (request-path request) "/quicklisp") (quicklisp-page request))
+    ((starts-with-subseq "/quicklisp/install/" (request-path request)) (quicklisp-install request))
+    ((starts-with-subseq "/package/" (request-path request)) (package-page request))
+    (t 'not-handled)))
 
 (defun package-page (request)
-  (destructuring-bind (package-name &rest rest)
+  (destructuring-bind (prefix package-name &rest rest)
       (split-sequence #\/ (subseq (request-path request) 1))
     (declare (ignore rest))
+    (assert (string= prefix "package"))
 
     (let ((package (find-package (case-invert-name package-name)))
           (some-docs-p nil))
@@ -61,7 +66,7 @@ a true Common Lisp while still working in Allegro's mlisp."
              (:html
                (:head
                 (:title (:format "Package: ~a" (package-name package)))
-                (:link :rel "stylesheet" :type "text/css" :href "manifest.css"))
+                (:link :rel "stylesheet" :type "text/css" :href "/manifest.css"))
 
                (:body
                 (:h1 (:print (package-name package))))
@@ -89,7 +94,7 @@ a true Common Lisp while still working in Allegro's mlisp."
                       (:table
                        (dolist (sym names)
                          (html
-                           (:tr
+                           ((:tr :class (:format "~:[not-documented~;~]" (docs-for sym what)))
                             (:td :class "symbol" (:print (princ-to-string sym)))
                             (:td :class "docs" (:print (or (docs-for sym what) "NO DOCS!")))))))))
 
@@ -123,12 +128,85 @@ a true Common Lisp while still working in Allegro's mlisp."
       (:html
         (:head
          (:title "Manifest: all packages")
-         (:link :rel "stylesheet" :type "text/css" :href "manifest.css"))
+         (:link :rel "stylesheet" :type "text/css" :href "/manifest.css"))
         (:body
          (:h1 "All Packages")
-         (:ul
+         ((:ul :class "packages")
           (loop for pkg in (sort (mapcar #'package-name (public-packages)) #'string<)
-             do (html (:li (:a :class "package" :href (:format "./~a" (case-invert-name pkg)) pkg))))))))))
+             do (html (:li (:a :class "package" :href (:format "/package/~a" (case-invert-name pkg)) pkg))))))))))
+
+(defun system-descriptions ()
+  "Temporary hack until Xach provides a way to get this programatically from Quicklisp."
+  (let ((h (make-hash-table :test #'equal)))
+    (with-open-file (in "descriptions.txt")
+      (loop for line = (read-line in nil nil)
+         while line do
+           (let* ((pos (search " - " line))
+                  (name (subseq line 0 pos))
+                  (description (subseq line (+ pos 3))))
+             (setf (gethash name h) description))))
+    h))
+
+(defun quicklisp-page (request)
+  (let ((descriptions (system-descriptions)))
+    (with-text-output ((send-headers request))
+      (html
+        (:html
+          (:head
+           (:title "Manifest: Quicklisp browser")
+           (:link :rel "stylesheet" :type "text/css" :href "manifest.css"))
+          (:body
+           (:h1 "Dists")
+           (loop for dist in (ql-dist:all-dists) do
+                (html
+                  (:h2 (:print (ql-dist:name dist)))
+                  (:table
+                   (:thead
+                    (:th "System")
+                    (:th "Description")
+                    (:th "Installed?"))
+                   (:tbody
+                    (loop for system in (ql-dist:provided-systems dist)
+                       for name = (ql-dist:name system)
+                       for installedp = (ql-dist:installedp system)
+                       for description = (gethash name descriptions "NO DESCRIPTION!")
+                       do
+                         (html
+                           (:tr
+                            (:td name)
+                            (:td description)
+                            (:td
+                             (if installedp
+                                 (html "✓")
+                                 (html (:a :href (:format "/quicklisp/install/~a" name) "Install")))))))))))))))))
+
+(defun foo ()
+  (let ((dist (ql-dist:find-dist "quicklisp"))
+        (systems (make-hash-table))
+        (in (make-hash-table))
+        (out (make-hash-table))
+        (all (make-hash-table)))
+    (flet ((record-dependency (system dep)
+             (setf (gethash system all) t)
+             (setf (gethash dep all) t)
+             (incf (gethash system out 0))
+             (incf (gethash dep in 0))))
+      (loop for release in (ql-dist:provided-releases dist) do
+         (loop for system in (ql-dist:provided-systems release) do
+              (loop for dep in (ql-dist:required-systems system) do
+                   (format t "~&~a requires ~a" (ql-dist:name system) dep)))))))
+
+
+
+(defun quicklisp-install (request)
+  (destructuring-bind (quicklisp install system &rest rest)
+      (split-sequence #\/ (subseq (request-path request) 1))
+    (declare (ignore rest))
+    (assert (string= quicklisp "quicklisp"))
+    (assert (string= install "install"))
+
+    (ql:quickload system)
+    (redirect request "/quicklisp")))
 
 (defun public-packages ()
   (loop for p in (list-all-packages)
