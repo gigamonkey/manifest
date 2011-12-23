@@ -2,6 +2,8 @@
 
 (defvar *manifest-server* nil)
 
+(defparameter *possible-readme-types* '(nil "txt" "md" "TXT"))
+
 (defparameter *inverting-readtable*
     (let ((rt (copy-readtable nil)))
       (setf (readtable-case rt) :invert)
@@ -234,22 +236,19 @@ a true Common Lisp while still working in Allegro's mlisp."
          (:class
           `(setf (documentation (find-class ',name) t) "WRITE ME!")))))
 
-
-
 (defun readme-text (package-name)
+  (with-open-file (in (find-readme package-name) :if-does-not-exist nil)
+    (when in
+      (with-output-to-string (s)
+        (loop for line = (read-line in nil nil)
+           while line do (write-line line s))))))
+
+(defun find-readme (package-name)
   (let ((dir (ignore-errors (asdf:system-relative-pathname package-name nil))))
     (when dir
-      (let ((readme (find-if #'(lambda (pathname)
-                                 (search "README"
-                                         (file-namestring pathname)
-                                         :test #'equalp))
-                               (cl-fad:list-directory dir))))
-        (when readme
-         (with-open-file (in readme :if-does-not-exist nil)
-           (when in
-             (with-output-to-string (s)
-               (loop for line = (read-line in nil nil)
-                     while line do (write-line line s))))))))))
+      (loop for type in *possible-readme-types*
+         when (probe-file (merge-pathnames (make-pathname :name "README" :type type) dir))
+         return it))))
 
 (defun names (package what)
   (sort
