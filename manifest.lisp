@@ -176,7 +176,10 @@ a true Common Lisp while still working in Allegro's mlisp."
                        do
                          (html
                            (:tr :class (:format "~:[not-documented~;~]" descriptionp)
-                            (:td name)
+                            (:td
+                             (if (and installedp (find-package (case-invert-name name)))
+                                 (html (:a :href (:format "/package/~a" name) name))
+                                 (html name)))
                             (:td :class "docs"
                                  description)
                             (:td
