@@ -171,12 +171,14 @@ a true Common Lisp while still working in Allegro's mlisp."
                     (loop for system in (ql-dist:provided-systems dist)
                        for name = (ql-dist:name system)
                        for installedp = (ql-dist:installedp system)
-                       for description = (gethash name descriptions "NO DESCRIPTION!")
+                       for (description descriptionp) = (multiple-value-list
+                                                         (gethash name descriptions "NO DESCRIPTION!"))
                        do
                          (html
-                           (:tr
+                           (:tr :class (:format "~:[not-documented~;~]" descriptionp)
                             (:td name)
-                            (:td description)
+                            (:td :class "docs"
+                                 description)
                             (:td
                              (if installedp
                                  (html "✓")
