@@ -237,11 +237,12 @@ a true Common Lisp while still working in Allegro's mlisp."
           `(setf (documentation (find-class ',name) t) "WRITE ME!")))))
 
 (defun readme-text (package-name)
-  (with-open-file (in (find-readme package-name) :if-does-not-exist nil)
-    (when in
-      (with-output-to-string (s)
-        (loop for line = (read-line in nil nil)
-           while line do (write-line line s))))))
+  (when-let ((file (find-readme package-name)))
+    (with-open-file (in file :if-does-not-exist nil)
+      (when in
+        (with-output-to-string (s)
+          (loop for line = (read-line in nil nil)
+             while line do (write-line line s)))))))
 
 (defun find-readme (package-name)
   (let ((dir (ignore-errors (asdf:system-relative-pathname package-name nil))))
