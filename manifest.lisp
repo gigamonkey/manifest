@@ -59,7 +59,7 @@ a true Common Lisp while still working in Allegro's mlisp."
     (when-let (package (find-package (case-invert-name package-name)))
       (let ((some-docs-p nil))
         (with-response-body (s request)
-          (with-html-output (s)
+          (with-text-output (s)
             (html
              (:html
                (:head
@@ -121,7 +121,7 @@ a true Common Lisp while still working in Allegro's mlisp."
 
 (defun index-page (request)
   (with-response-body (s request)
-    (with-html-output (s)
+    (with-text-output (s)
       (html
         (:html
           (:head

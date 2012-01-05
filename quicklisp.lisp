@@ -16,7 +16,7 @@
 (defun quicklisp-page (request)
   (let ((descriptions (system-descriptions)))
     (with-response-body (s request)
-      (with-html-output (s)
+      (with-text-output (s)
         (html
           (:html
             (:head
