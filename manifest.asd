@@ -11,4 +11,5 @@
                :split-sequence
                :monkeylib-html)
   :components ((:file "packages")
-               (:file "manifest" :depends-on ("packages"))))
+               (:file "manifest" :depends-on ("packages"))
+               #+quicklisp(:file "quicklisp" :depends-on ("packages"))))
