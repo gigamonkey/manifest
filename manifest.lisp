@@ -59,79 +59,89 @@ a true Common Lisp while still working in Allegro's mlisp."
     (when-let (package (find-package (case-invert-name package-name)))
       (let ((some-docs-p nil))
         (with-response-body (s request)
-          (with-text-output (s)
-            (html
-             (:html
-               (:head
-                (:title (:format "Package: ~a" (package-name package)))
-                (:link :rel "stylesheet" :type "text/css" :href "/manifest.css"))
+          (with-html-output (s)
+            (:html
+              (:head
+               (:title (:format "Package: ~a" (package-name package)))
+               (:script :type "text/javascript" :src "/jquery-1.7.1.js")
+               (:script :type "text/javascript" :src "/manifest.js")
+               (:link :rel "stylesheet" :type "text/css" :href "/manifest.css"))
 
-               (:body
-                (:h1 (:print (package-name package))))
+              (:body
+               (:div :style "float: right" (:input :id "toggle-internals" :type "checkbox") " Show internal symbols")
+               (:h1 (:print (package-name package)))
 
-               (when (package-nicknames package)
-                 (html
-                   ((:p :class "nicknames")
-                    (:format "Nicknames: ~{~a~^, ~}" (package-nicknames package)))))
 
-               (when (documentation package t)
-                 (html
-                   ((:p :class "package-desc") (:print (documentation package t)))))
+                (when (package-nicknames package)
+                  (html
+                    ((:p :class "nicknames")
+                     (:format "Nicknames: ~{~a~^, ~}" (package-nicknames package)))))
 
-               (let ((readme (readme-text package-name)))
-                 (when readme
-                   (setf some-docs-p t)
-                   (html (:pre readme))))
+                (when (documentation package t)
+                  (html
+                    ((:p :class "package-desc") (:print (documentation package t)))))
 
-               (loop for what in *categories*
-                  for names = (names package what)
-                  when names do
+                (let ((readme (readme-text package-name)))
+                  (when readme
                     (setf some-docs-p t)
+                    (html (:pre readme))))
+
+                (loop for what in *categories*
+                   for names = (names package what)
+                   when names do
+                     (setf some-docs-p t)
+                     (html
+                     (:h2 (:format "~:(~a~)" (pluralization what)))
+                     (:table
+                      (dolist (sym names)
+                        (html
+                          ((:tr :class (:format "~@[not-documented~]~@[ internal~]" (docs-for sym what) (not (exported-p sym))))
+                           (:td :class "symbol" (:print (princ-to-string sym)))
+                           (:td :class "docs" (:print (or (docs-for sym what) "NO DOCS!")))))))))
+
+
+                (let ((used-by (sort (package-used-by-list package) #'string< :key #'package-name)))
+                  (when used-by
                     (html
-                      (:h2 (:format "~:(~a~)" (pluralization what)))
-                      (:table
-                       (dolist (sym names)
-                         (html
-                           ((:tr :class (:format "~:[not-documented~;~]" (docs-for sym what)))
-                            (:td :class "symbol" (:print (princ-to-string sym)))
-                            (:td :class "docs" (:print (or (docs-for sym what) "NO DOCS!")))))))))
+                      (:h2 "Used by:")
+                      (:ul
+                       (loop for p in used-by do
+                            (html (:li ((:a :href (:format "./~(~a~)" (package-name p)))
+                                        (:print (package-name p))))))))))
+
+                (let ((uses (sort (package-use-list package) #'string< :key #'package-name)))
+                  (when uses
+                    (html
+                      (:h2 "Uses:")
+                      (:ul
+                       (loop for p in uses do
+                            (html (:li ((:a :href (:format "./~(~a~)" (package-name p)))
+                                        (:print (package-name p))))))))))
 
 
-               (let ((used-by (sort (package-used-by-list package) #'string< :key #'package-name)))
-                 (when used-by
-                   (html
-                     (:h2 "Used by:")
-                     (:ul
-                      (loop for p in used-by do
-                           (html (:li ((:a :href (:format "./~(~a~)" (package-name p)))
-                                       (:print (package-name p))))))))))
+                (unless some-docs-p
+                  (html (:p "Uh oh! No docs at all.")))))))))))
 
-               (let ((uses (sort (package-use-list package) #'string< :key #'package-name)))
-                 (when uses
-                   (html
-                     (:h2 "Uses:")
-                     (:ul
-                      (loop for p in uses do
-                           (html (:li ((:a :href (:format "./~(~a~)" (package-name p)))
-                                       (:print (package-name p))))))))))
-
-
-               (unless some-docs-p
-                 (html (:p "Uh oh! No docs at all.")))))))))))
+(defun exported-p (sym)
+  (cond
+    ((consp sym)
+     (assert (eql (first sym) 'setf))
+     (exported-p (second sym)))
+    (t
+     (eql (nth-value 1 (find-symbol (symbol-name sym) (symbol-package sym))) :external))))
 
 (defun index-page (request)
   (with-response-body (s request)
-    (with-text-output (s)
-      (html
-        (:html
-          (:head
-           (:title "Manifest: all packages")
-           (:link :rel "stylesheet" :type "text/css" :href "/manifest.css"))
-          (:body
-           (:h1 "All Packages")
-           ((:ul :class "packages")
-            (loop for pkg in (sort (mapcar #'package-name (public-packages)) #'string<)
-               do (html (:li (:a :class "package" :href (:format "/package/~a" (case-invert-name pkg)) pkg)))))))))))
+    (with-html-output (s)
+      (:html
+        (:head
+         (:title "Manifest: all packages")
+         (:link :rel "stylesheet" :type "text/css" :href "/manifest.css"))
+        (:body
+         (:h1 "All Packages")
+         ((:ul :class "packages")
+          (loop for pkg in (sort (mapcar #'package-name (public-packages)) #'string<)
+             do (html (:li (:a :class "package" :href (:format "/package/~a" (case-invert-name pkg)) pkg))))))))))
 
 (defun public-packages ()
   (loop for p in (list-all-packages)
@@ -176,7 +186,7 @@ a true Common Lisp while still working in Allegro's mlisp."
 
 (defun names (package what)
   (sort
-   (loop for sym being the external-symbols of package
+   (loop for sym being the present-symbols of package
       when (is sym what) collect sym
       when (is `(setf ,sym) what) collect `(setf ,sym))
    #'name<))

@@ -16,43 +16,42 @@
 (defun quicklisp-page (request)
   (let ((descriptions (system-descriptions)))
     (with-response-body (s request)
-      (with-text-output (s)
-        (html
-          (:html
-            (:head
-             (:title "Manifest: Quicklisp browser")
-             (:link :rel "stylesheet" :type "text/css" :href "manifest.css"))
-            (:body
-             (:h1 "Dists")
-             (loop for dist in (ql-dist:all-dists) do
-                  (html
-                    (:h2 (:print (ql-dist:name dist)))
-                    (:table
-                     (:thead
-                      (:th "System")
-                      (:th "Description")
-                      (:th "Installed?"))
-                     (:tbody
-                      (loop for system in (ql-dist:provided-systems dist)
-                         for name = (ql-dist:name system)
-                         for installedp = (ql-dist:installedp system)
-                         for (description descriptionp) = (multiple-value-list
-                                                           (gethash name descriptions "NO DESCRIPTION!"))
-                         do
-                         (html
-                           (:tr :class (:format "~:[not-documented~;~]" descriptionp)
-                                (:td
-                                 (if (and installedp (find-package (case-invert-name name)))
-                                     (html (:a :href (:format "/package/~a" name) name))
-                                     (html name)))
-                                (:td :class "docs"
-                                     description)
-                                (:td
-                                 (if installedp
-                                     (html "✓")
-                                     (html (:a :href (:format "/quicklisp/install/~a" name) "Install"))))))))))))))))))
+      (with-html-output (s)
+        (:html
+          (:head
+           (:title "Manifest: Quicklisp browser")
+           (:link :rel "stylesheet" :type "text/css" :href "manifest.css"))
+          (:body
+           (:h1 "Dists")
+           (loop for dist in (ql-dist:all-dists) do
+                (html
+                  (:h2 (:print (ql-dist:name dist)))
+                  (:table
+                   (:thead
+                    (:th "System")
+                    (:th "Description")
+                    (:th "Installed?"))
+                   (:tbody
+                    (loop for system in (ql-dist:provided-systems dist)
+                       for name = (ql-dist:name system)
+                       for installedp = (ql-dist:installedp system)
+                       for (description descriptionp) = (multiple-value-list
+                                                         (gethash name descriptions "NO DESCRIPTION!"))
+                       do
+                       (html
+                         (:tr :class (:format "~:[not-documented~;~]" descriptionp)
+                              (:td
+                               (if (and installedp (find-package (case-invert-name name)))
+                                   (html (:a :href (:format "/package/~a" name) name))
+                                   (html name)))
+                              (:td :class "docs"
+                                   description)
+                              (:td
+                               (if installedp
+                                   (html "✓")
+                                   (html (:a :href (:format "/quicklisp/install/~a" name) "Install")))))))))))))))))
 
-(defun foo ()
+#+(or)(defun foo ()
   (let ((dist (ql-dist:find-dist "quicklisp"))
         (systems (make-hash-table))
         (in (make-hash-table))

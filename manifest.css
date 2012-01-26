@@ -42,6 +42,10 @@ th { text-align: left; }
     text-transform: lowercase;
 }
 
-tr.not-documented>td.docs {
+.internal {
+    color: gray;
+}
+
+tr.not-documented > td.docs {
     color: gray;
 }

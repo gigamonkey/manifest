@@ -3,9 +3,7 @@
 (defpackage :manifest
   (:use :closer-common-lisp
         :monkeylib-html
-        :monkeylib-text-output
         :toot
-        :split-sequence
-        :alexandria)
+        :com.gigamonkeys.utilities)
   (:export :start
            :stop))
