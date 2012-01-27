@@ -9,7 +9,7 @@
       (setf (readtable-case rt) :invert)
       rt))
 
-(defparameter *categories* '(:function :generic-function :slot-accessor :variable :class :condition :constant))
+(defparameter *categories* '(:function :macro :generic-function :slot-accessor :variable :class :condition :constant))
 
 (defun start (&key (port 0))
   "Start the manifest server and return the URL to browse. By default
@@ -229,6 +229,9 @@ a true Common Lisp while still working in Allegro's mlisp."
 (defun function-p (name)
   (ignore-errors (fdefinition name)))
 
+(defun macro-p (name)
+  (and (symbolp name) (macro-function name)))
+
 (defun generic-function-p (name)
   (and (function-p name)
        (typep (fdefinition name) 'generic-function)))
@@ -253,7 +256,13 @@ a true Common Lisp while still working in Allegro's mlisp."
 
 (define-category :function (symbol what)
   (:is (and (function-p symbol)
-            (not (or (is symbol :generic-function) (is symbol :slot-accessor)))))
+            (not (or (is symbol :macro)
+                     (is symbol :generic-function)
+                     (is symbol :slot-accessor)))))
+  (:docs (documentation symbol 'function)))
+
+(define-category :macro (symbol what)
+  (:is (macro-p symbol))
   (:docs (documentation symbol 'function)))
 
 (define-category :generic-function (symbol what)
