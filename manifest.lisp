@@ -271,12 +271,12 @@ a true Common Lisp while still working in Allegro's mlisp."
   (:docs (documentation symbol 'function)))
 
 (define-category :class (symbol what)
-  (:is (and (find-class symbol nil) (not (is symbol :condition))))
+  (:is (and (symbolp symbol) (find-class symbol nil) (not (is symbol :condition))))
   (:docs (documentation (find-class symbol) t))
   (:pluralization (format nil "~aes" what)))
 
 (define-category :condition (symbol what)
-  (:is (and (find-class symbol nil) (subtypep (find-class symbol nil) 'condition)))
+  (:is (and (symbolp symbol) (find-class symbol nil) (subtypep (find-class symbol nil) 'condition)))
   (:docs (documentation (find-class symbol) t)))
 
 (define-category :variable (symbol what)
